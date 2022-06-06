@@ -1,7 +1,7 @@
 
 import './App.css';
 import { Homepage } from './pages/HomePage';
-import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+//import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
 
 
 function App() {

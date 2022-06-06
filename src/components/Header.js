@@ -9,20 +9,32 @@ const NavBar = styled.nav`
     margin: 20px;
     max-height: 125px;
     padding: 15px;
+  
+   
 
-    .btn-logo {
-        color: white;
-        background-color: blue;
-        
+    
+    .cart-logo{
+        size: 50px;
+    }
+    .logo{
+        padding: 5px;
     }
 
     .brand-text{
-        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+        padding-left: 3px;
+        font-weight: bold;
+        color: black;
+        align-content: center;
+        text-decoration: none;
     }
 
-    .logo{
-        background-image: url('../assets/logo-50.png');
+    input{
+       width: 20%;
+       height: 30px;
+       flex: 1;
     }
+    
 `;
 
 export default NavBar;
