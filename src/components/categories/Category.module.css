@@ -1,0 +1,34 @@
+.categoryContainer{
+    margin: 20px;
+    text-align: center;
+    position: relative;
+    max-width: 500px;
+    
+}
+
+
+.img{
+    max-width: 500px;
+    position: relative;
+    display: flex;
+}
+
+@-moz-document url-prefix() {
+    .label {
+      background-color: white;
+      bottom: 0px;
+      text-decoration: underline;
+      text-align: center;
+    }
+}
+
+.label {
+    position: absolute;
+    font-weight: bold;
+    left: 0%;
+    bottom: 5px;
+    backdrop-filter: blur(25px);
+    width: 100%;
+    
+  }
+  

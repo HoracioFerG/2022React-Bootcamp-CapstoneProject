@@ -1,4 +1,5 @@
-export default categoriesData = {
+/*eslint comma-dangle: ["error", "never"]*/
+export  const categoriesData = {
     "page": 1,
     "results_per_page": 20,
     "results_size": 5,
@@ -12,6 +13,7 @@ export default categoriesData = {
         "uid": null,
         "url": null,
         "type": "category",
+        /*eslint max-len: ["error", { "ignoreUrls": true }]*/
         "href": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YWYpRBIAACwA3RZ5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YWHx-xIAAC0Ayj7i%22%29+%5D%5D",
         "tags": [],
         "first_publication_date": "2021-10-09T23:33:05+0000",
@@ -35,6 +37,7 @@ export default categoriesData = {
             },
             "alt": "Bath",
             "copyright": null,
+            /*eslint max-len: ["error", { "ignoreUrls": true }]*/
             "url": "https://images.prismic.io/wizeline-academy/5df875b5-3e43-4cf0-97b9-06ed73ed6d9b_sanibell-bv-530lZQXMKGw-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,24,1920,1231&w=621&h=398"
           }
         }
@@ -44,6 +47,7 @@ export default categoriesData = {
         "uid": null,
         "url": null,
         "type": "category",
+        /*eslint max-len: ["error", { "ignoreUrls": true }]*/
         "href": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YWYpRBIAACwA3RZ5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YWHy0xIAACoAykKm%22%29+%5D%5D",
         "tags": [],
         "first_publication_date": "2021-10-09T23:32:20+0000",
@@ -67,6 +71,7 @@ export default categoriesData = {
             },
             "alt": "Lighting",
             "copyright": null,
+            /*eslint max-len: ["error", { "ignoreUrls": true }]*/
             "url": "https://images.prismic.io/wizeline-academy/fdc4897a-c224-450f-9378-a39d2afaa7f6_zero-take-uLcBn2TsavU-unsplash-web+%281%29.jpg?auto=compress,format&rect=1,0,1919,1230&w=621&h=398"
           }
         }
@@ -76,6 +81,7 @@ export default categoriesData = {
         "uid": null,
         "url": null,
         "type": "category",
+        /*eslint max-len: ["error", { "ignoreUrls": true }]*/
         "href": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YWYpRBIAACwA3RZ5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YWHxkhIAAC4Ayj0J%22%29+%5D%5D",
         "tags": [],
         "first_publication_date": "2021-10-09T23:33:27+0000",
@@ -99,6 +105,7 @@ export default categoriesData = {
             },
             "alt": "Kitchen",
             "copyright": null,
+            /*eslint max-len: ["error", { "ignoreUrls": true }]*/
             "url": "https://images.prismic.io/wizeline-academy/650366df-0405-4712-bd3b-2703d87e7a61_watermark-designs-XL6gfkLmkOw-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,26,1920,1231&w=621&h=398"
           }
         }
@@ -108,6 +115,7 @@ export default categoriesData = {
         "uid": null,
         "url": null,
         "type": "category",
+        /*eslint max-len: ["error", { "ignoreUrls": true }]*/
         "href": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YWYpRBIAACwA3RZ5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YWHviRIAACsAyjP3%22%29+%5D%5D",
         "tags": [],
         "first_publication_date": "2021-10-09T23:34:39+0000",
@@ -131,6 +139,7 @@ export default categoriesData = {
             },
             "alt": "Furniture",
             "copyright": null,
+            /*eslint max-len: ["error", { "ignoreUrls": true }]*/
             "url": "https://images.prismic.io/wizeline-academy/5266b923-b89f-4b80-9a4a-ddb98b81c53f_nathan-fertig-FBXuXp57eM0-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,21,1920,1231&w=621&h=398"
           }
         }
@@ -140,6 +149,7 @@ export default categoriesData = {
         "uid": null,
         "url": null,
         "type": "category",
+        /*eslint max-len: ["error", { "ignoreUrls": true }]*/
         "href": "https://wizeline-academy.cdn.prismic.io/api/v2/documents/search?ref=YWYpRBIAACwA3RZ5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YWHyYRIAACgAykCq%22%29+%5D%5D",
         "tags": [],
         "first_publication_date": "2021-10-09T23:32:29+0000",
@@ -163,6 +173,7 @@ export default categoriesData = {
             },
             "alt": "Decorate & Organize",
             "copyright": null,
+            /*eslint max-len: ["error", { "ignoreUrls": true }]*/
             "url": "https://images.prismic.io/wizeline-academy/7213f592-3304-4521-9765-830792751780_angela-bailey-tuJtzghMuEw-unsplash-web+%281%29.jpg?auto=compress,format&rect=0,24,1920,1231&w=621&h=398"
           }
         }
