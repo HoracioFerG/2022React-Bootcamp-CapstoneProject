@@ -9,10 +9,8 @@ const NavBar = styled.nav`
     margin: 20px;
     max-height: 125px;
     padding: 15px;
-  
-   
+    border-radius: 5px;
 
-    
     .cart-logo{
         size: 50px;
     }
@@ -21,8 +19,9 @@ const NavBar = styled.nav`
     }
 
     .brand-text{
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+        font-family: 'century gothic';
         padding-left: 3px;
+        padding-right: 5px;
         font-weight: bold;
         color: black;
         align-content: center;
@@ -31,8 +30,7 @@ const NavBar = styled.nav`
 
     input{
        width: 20%;
-       height: 30px;
-       flex: 1;
+       height: 30px;       
     }
     
 `;

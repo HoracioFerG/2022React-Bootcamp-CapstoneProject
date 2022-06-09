@@ -1,21 +1,27 @@
 .categoryContainer{
-    margin: 20px;
+    margin: 5px;
     text-align: center;
     position: relative;
-    max-width: 500px;
+    max-width: 150vw;
     
 }
 
 
 .img{
-    max-width: 500px;
+    max-width: 20vh;
     position: relative;
-    display: flex;
+    display: flex;    
 }
+
+.categoryContainer :hover{
+    box-shadow: 5px 8px 8px 8px #999;
+}
+
+
 
 @-moz-document url-prefix() {
     .label {
-      background-color: white;
+      background-color: rgba(255,255,255,0.5);
       bottom: 0px;
       text-decoration: underline;
       text-align: center;
