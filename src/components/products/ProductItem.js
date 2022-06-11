@@ -4,27 +4,47 @@ const ProductItemContainer = styled.div`
     margin: 8px;
     position: relative;
     max-width: 200px;
-    background-color: aliceblue;
+    background-color: rgba(224,223,223, 0.5);
     border-radius: 10px;
+
+    border-color: #6f6f6f;
+    border-width: 1px;
+    border-style: solid;
+
+    :hover{
+        background-color: white;
+        cursor: pointer;
+        border-color: white;
+        img{
+            border-bottom: black;
+            border-width: 1px;
+            border-style: solid;
+        }
+    }
+    
 
 
     img{
         max-width: 200px;
         position: relative;
         display: flex;
+        border-radius: 10px;
+        
         
 
     }
 
     .productName{
         font-weight: bold;
-        color: red;
+        /* color: #8b7031; */
         margin-bottom: 0;
-        margin-top: 0;
+        margin-top: 5px;
+        margin-left: 5px;
     }
 
     .productCategory{
         color:#6f6f6f;
+        margin-left: 5px;
     }
 
     h6{
@@ -36,6 +56,9 @@ const ProductItemContainer = styled.div`
         color: #b1b1b1;
         font-weight: bold;
         text-align: right;
+    }
+    .priceContainer{
+        background-color: red;
     }
 
     .priceDiscount{

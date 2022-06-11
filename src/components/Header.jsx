@@ -5,11 +5,11 @@ import smCart from '../assets/cart-64.png';
 
 export const Header = () => {
   return (
-    <>
+   
      
-      <NavBar>
+      <NavBar data-testid="Header">
       <a href='/' >
-        <img className='logo' src={smLogo} alt="React Logo" />
+        <img className='logo' src={smLogo} alt="logo" />
         
       </a> 
       <h3 className='brand-text'>Luxury Furniture</h3>             
@@ -19,8 +19,8 @@ export const Header = () => {
           placeholder='King size bed' 
           
         />
-        <a href='/' className='cart-logo'><img src={smCart} alt="React Logo" /></a>
+        <a href='/' className='cart-logo'><img src={smCart} alt="cart-logo" /></a>
       </NavBar>
-    </>
+    
   )
 }

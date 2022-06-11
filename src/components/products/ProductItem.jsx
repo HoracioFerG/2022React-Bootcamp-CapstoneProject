@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProductItemContainer from './ProductItem';
-
+import ProductItemContainer from './ProductItem.js';
+ 
 export const ProductItem = ({product}) => {
 
   const setPrice = (price) => {
@@ -29,7 +29,7 @@ export const ProductItem = ({product}) => {
   return (
     <ProductItemContainer>
       <img alt={product.data.mainimage.alt} src={product.data.mainimage.url} />
-      <hr className='leftLine'/>
+      
       <h5 className='productName'>{product.data.name}</h5>
       <small className='productCategory'>
         {
