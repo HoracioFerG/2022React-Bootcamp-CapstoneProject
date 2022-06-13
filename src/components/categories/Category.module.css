@@ -2,8 +2,8 @@
     margin: 5px;
     text-align: center;
     position: relative;
-    max-width: 150vw;
-    
+    max-width: inherit;
+    cursor: pointer;
 }
 
 
@@ -34,7 +34,7 @@
     left: 0%;
     bottom: 5px;
     backdrop-filter: blur(25px);
-    width: 100%;
+    max-width: 20vh;
     
   }
   

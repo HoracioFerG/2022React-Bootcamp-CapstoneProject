@@ -4,7 +4,7 @@ import FeaturedProductGrid from './PoductGrid';
 import { ProductItem } from './ProductItem.jsx';
 
 
-export const ProductsGrid = () => {
+export const ProductsGrid = ({componentOn}) => {
   return (
     <FeaturedProductGrid>
       <div className='featuredProductsTitleContainer'>
@@ -18,6 +18,9 @@ export const ProductsGrid = () => {
                 return <ProductItem key={product.id} product={product}/>
             })
         }
+        <button onClick={() => componentOn('products')}>
+          <h4>Wanna see more? Click here!</h4>
+        </button>
     </FeaturedProductGrid>
   )
 }

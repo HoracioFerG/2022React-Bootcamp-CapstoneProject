@@ -9,6 +9,16 @@ const FeaturedProductGrid = styled.div`
     margin: 20px;
     position: relative;
 
+
+    button{
+        flex: 0 0 80%;
+        text-align: center;
+        background-color: transparent;
+        cursor: pointer;
+        margin-bottom: 10px;
+        border-color: transparent;
+        
+    }
     .featuredProductsTitleContainer{
         flex: 0 0 100%;
         

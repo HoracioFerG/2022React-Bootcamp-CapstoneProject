@@ -16,6 +16,7 @@ const NavBar = styled.nav`
     }
     .logo{
         padding: 5px;
+        cursor: pointer;
     }
 
     .brand-text{

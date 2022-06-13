@@ -3,15 +3,16 @@ import NavBar from './Header';
 import smLogo from '../assets/logo-50.png';
 import smCart from '../assets/cart-64.png';
 
-export const Header = () => {
+export const Header = ({componentOn}) => {
+
+  
+
   return (
    
      
-      <NavBar data-testid="Header">
-      <a href='/' >
-        <img className='logo' src={smLogo} alt="logo" />
-        
-      </a> 
+      <NavBar>
+      
+      <img onClick={() => componentOn('home')} className='logo' src={smLogo} alt="logo" />    
       <h3 className='brand-text'>Luxury Furniture</h3>             
         <input 
           type="text" 

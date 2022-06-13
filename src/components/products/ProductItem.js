@@ -15,6 +15,7 @@ const ProductItemContainer = styled.div`
         background-color: white;
         cursor: pointer;
         border-color: white;
+        box-shadow: 2px 2px 5px 1px #999;
         img{
             border-bottom: black;
             border-width: 1px;

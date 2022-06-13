@@ -13,6 +13,7 @@ const FooterComponent = styled.footer`
     background-color: white;
     margin-top: 20px;
     display: flex;
+    
 
     h5{
         text-align: center;

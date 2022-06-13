@@ -4,14 +4,14 @@ import { SliderCategories } from './categories/SliderCategories';
 import { ProductsGrid } from './products/ProductsGrid';
 
 
-export const Content = () => {
+export const Content = ({componentOn}) => {
   
   return (
     <>
     
     <Carousel/>
     <SliderCategories/>
-    <ProductsGrid/>
+    <ProductsGrid componentOn={componentOn}/>
     </>
   )
 }
