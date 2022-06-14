@@ -7,7 +7,7 @@ import { ProductsHomePage } from './ProductsHomePage.jsx'
 
 export const Homepage = () => {
  
-  const [view, setView] = useState('products');
+  const [view, setView] = useState('home');
   let viewOn = (view==='home') ? <Content componentOn={setView}/> : <ProductsHomePage/>;
   return (
       <>
