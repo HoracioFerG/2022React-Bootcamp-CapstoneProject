@@ -11,36 +11,33 @@ const NavBar = styled.nav`
   padding: 15px;
   border-radius: 5px;
 
-    .leftSideHeader{
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        width: 50%;
-    }
+  .leftSideHeader {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 50%;
+  }
 
   .rightSideHeader {
-      display: flex;
-      right: 0;
-      margin-left: auto;
-      width: 50%;
-      gap: 10px;
-      align-items: center;
+    display: flex;
+    right: 0;
+    margin-left: auto;
+    width: 50%;
+    gap: 10px;
+    align-items: center;
 
-      input {
-        width: 100%;
-        max-height: 25px;
-        padding: 8px;
-        border-radius: 5px;
-        border-width: 0.5px;
-      
+    input {
+      width: 100%;
+      max-height: 25px;
+      padding: 8px;
+      border-radius: 5px;
+      border-width: 0.5px;
     }
 
     img {
       max-width: 50px;
     }
   }
-
-  
 `;
 
 export default NavBar;

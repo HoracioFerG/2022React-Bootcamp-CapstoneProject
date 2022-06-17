@@ -1,40 +1,35 @@
-.categoryContainer{
-    margin: 5px;
-    text-align: center;
-    position: relative;
-    max-width: inherit;
-    cursor: pointer;
+.categoryContainer {
+  margin: 5px;
+  text-align: center;
+  position: relative;
+  max-width: inherit;
+  cursor: pointer;
 }
 
-
-.img{
-    max-width: 20vh;
-    position: relative;
-    display: flex;    
+.img {
+  max-width: 20vh;
+  position: relative;
+  display: flex;
 }
 
-.categoryContainer :hover{
-    box-shadow: 5px 8px 8px 8px #999;
+.categoryContainer :hover {
+  box-shadow: 5px 8px 8px 8px #999;
 }
-
-
 
 @-moz-document url-prefix() {
-    .label {
-      background-color: rgba(255,255,255,0.5);
-      bottom: 0px;
-      text-decoration: underline;
-      text-align: center;
-    }
+  .label {
+    background-color: rgba(255, 255, 255, 0.5);
+    bottom: 0px;
+    text-decoration: underline;
+    text-align: center;
+  }
 }
 
 .label {
-    position: absolute;
-    font-weight: bold;
-    left: 0%;
-    bottom: 5px;
-    backdrop-filter: blur(25px);
-    max-width: 20vh;
-    
-  }
-  
+  position: absolute;
+  font-weight: bold;
+  left: 0%;
+  bottom: 5px;
+  backdrop-filter: blur(25px);
+  max-width: 20vh;
+}

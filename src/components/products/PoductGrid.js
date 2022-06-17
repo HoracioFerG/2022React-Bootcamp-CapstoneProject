@@ -1,36 +1,34 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const FeaturedProductGrid = styled.div`
-    background-color: rgba(232,232,232, 0.7);
-    border-radius: 10px;
-    display: flex;
-    flex-wrap:  wrap;
-    justify-content: center;
-    margin: 20px;
-    position: relative;
+  background-color: rgba(232, 232, 232, 0.7);
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+  position: relative;
 
+  button {
+    flex: 0 0 80%;
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-color: transparent;
+  }
+  .featuredProductsTitleContainer {
+    flex: 0 0 100%;
 
-    button{
-        flex: 0 0 80%;
-        text-align: center;
-        background-color: transparent;
-        cursor: pointer;
-        margin-bottom: 10px;
-        border-color: transparent;
-        
+    h3 {
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
+      text-align: center;
     }
-    .featuredProductsTitleContainer{
-        flex: 0 0 100%;
-        
-        h3{
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
-            text-align: center;
-        }
 
-        hr{
-            width: 80%;
-        }
+    hr {
+      width: 80%;
     }
+  }
 `;
 
 export default FeaturedProductGrid;

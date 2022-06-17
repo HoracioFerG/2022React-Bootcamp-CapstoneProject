@@ -1,16 +1,8 @@
-
-import './App.css';
-import { Homepage } from './pages/HomePage';
-//import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
-
+import "./App.css";
+import { Homepage } from "./pages/HomePage";
 
 function App() {
- // const { data, isLoading } = useFeaturedBanners();
-  //console.log(data, isLoading);
-
-  return (
-    <Homepage/>
-  );
+  return <Homepage />;
 }
 
 export default App;

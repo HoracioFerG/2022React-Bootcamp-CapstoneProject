@@ -40,25 +40,25 @@ const ProductsHomeContainer = styled.div`
     overflow-y: scroll;
   }
   .paginationContainer {
-      margin: 20px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      
-      button{
-        margin: 5px;
-        border-radius: 6px;
-        border-width: 1px;
-        border-color: black;
-        border-style: solid;
-        background-color: white;
-        font-size: 15px;
-        cursor: pointer;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
-        :hover{
-            background-color: rgba(226,226,226, 0.5);
-        }
+    button {
+      margin: 5px;
+      border-radius: 6px;
+      border-width: 1px;
+      border-color: black;
+      border-style: solid;
+      background-color: white;
+      font-size: 15px;
+      cursor: pointer;
+
+      :hover {
+        background-color: rgba(226, 226, 226, 0.5);
       }
+    }
   }
   .productsContainer {
     flex-direction: row;

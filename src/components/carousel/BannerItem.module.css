@@ -2,10 +2,6 @@
   margin: 20px !important;
   text-align: center;
   position: relative;
-  
-  
-
-  
 }
 
 .img {
@@ -18,12 +14,12 @@
 }
 
 @-moz-document url-prefix() {
-    .label {
-      background-color: rgba(255,255,255,0.5);
-      bottom: 0px;
-      text-decoration: underline;
-      text-align: center;
-    }
+  .label {
+    background-color: rgba(255, 255, 255, 0.5);
+    bottom: 0px;
+    text-decoration: underline;
+    text-align: center;
+  }
 }
 
 .label {
