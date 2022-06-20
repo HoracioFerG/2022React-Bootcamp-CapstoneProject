@@ -27,6 +27,9 @@
 .App-link {
   color: #61dafb;
 }
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
+}
 
 @keyframes App-logo-spin {
   from {
