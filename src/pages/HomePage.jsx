@@ -1,19 +1,14 @@
-import React, { useState } from "react";
-import { Content } from "../components/Content";
+import React from "react";
+
 import { Footer } from "../components/Footer.jsx";
 import { Header } from "../components/Header.jsx";
-import { ProductsHomePage } from "./ProductsHomePage.jsx";
+import { AppRouter } from "../routes/AppRouter";
 
 export const Homepage = () => {
-  const [view, setView] = useState("home");
-  let viewOn =
-    view === "home" ? <Content componentOn={setView} /> : <ProductsHomePage />;
   return (
     <>
-      <Header componentOn={setView} />
-
-      {viewOn}
-
+      <Header />
+      <AppRouter />
       <Footer />
     </>
   );

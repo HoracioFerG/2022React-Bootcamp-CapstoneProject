@@ -16,6 +16,10 @@ const NavBar = styled.nav`
     gap: 10px;
     align-items: center;
     width: 50%;
+
+    .logo {
+      cursor: pointer;
+    }
   }
 
   .rightSideHeader {
