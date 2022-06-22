@@ -10,7 +10,7 @@ const FeaturedProductGrid = styled.div`
   position: relative;
 
   button {
-    flex: 0 0 80%;
+    flex: 0 0 100%;
     text-align: center;
     background-color: transparent;
     cursor: pointer;

@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { BannerItem } from "./BannerItem";
-import bannersData from "../../assets/banners";
+
+import { useFeaturedBanners } from "../../utils/hooks/useFeaturedBanners";
 
 export const Carousel = () => {
-  const { results: banners } = bannersData;
+  const { data, isLoading } = useFeaturedBanners();
+
   const [bannerIndex, setBannerIndex] = useState(0);
 
   useEffect(() => {
     let index = 0;
+
     const interval = setInterval(() => {
-      if (index === banners.length - 1) {
+      if (index === data.results.length - 1) {
         setBannerIndex(0);
         index = 0;
         return;
@@ -18,16 +21,20 @@ export const Carousel = () => {
       setBannerIndex(index);
     }, 3000);
     return () => clearInterval(interval);
-  }, [banners.length]);
+  }, [data.results]);
 
   return (
     <>
-      <BannerItem
-        key={banners[bannerIndex].id}
-        title={banners[bannerIndex].data.title}
-        alt={banners[bannerIndex].data.main_image.alt}
-        url={banners[bannerIndex].data.main_image.url}
-      />
+      {isLoading ? (
+        <></>
+      ) : (
+        <BannerItem
+          key={data.results[bannerIndex].id}
+          title={data.results[bannerIndex].data.title}
+          alt={data.results[bannerIndex].data.main_image.alt}
+          url={data.results[bannerIndex].data.main_image.url}
+        />
+      )}
     </>
   );
 };
