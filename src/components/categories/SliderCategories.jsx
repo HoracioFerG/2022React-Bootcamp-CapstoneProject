@@ -1,16 +1,24 @@
 import React from "react";
-import { categoriesData } from "../../assets/categories";
+
+import { useCustomAPI } from "../../utils/hooks/useCustomAPI";
 import { Category } from "./Category";
 import style from "./SliderCategories.module.css";
 
 export const SliderCategories = () => {
-  const { results: categories } = categoriesData;
+
+  const { data, isLoading } = useCustomAPI('category');
 
   return (
     <div className={style.sliderCategoriesContainer}>
-      {categories.map((category) => {
-        return <Category key={category.id} data={category.data} />;
-      })}
+      {
+        (isLoading) ?
+        <></>
+        :
+        data.results.map((category) => {
+          return <Category key={category.id} data={category.data} />;
+        })}
+      
+      
     </div>
   );
 };

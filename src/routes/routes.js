@@ -17,7 +17,15 @@ export const routes = [
     path: "/products",
     to: "/products",
     Component: <ProductsHomePage />,
+    child: [
+      {
+        path: ":idCategory",
+        to: ":idCategory",
+        Component: <ProductsHomePage />,
+      },
+    ],
   },
+
   {
     path: "*",
     to: "*",

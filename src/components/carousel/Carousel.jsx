@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BannerItem } from "./BannerItem";
 
-import { useFeaturedBanners } from "../../utils/hooks/useFeaturedBanners";
+import { useCustomAPI } from "../../utils/hooks/useCustomAPI";
 
 export const Carousel = () => {
-  const { data, isLoading } = useFeaturedBanners();
+  const { data, isLoading } = useCustomAPI('banner');
 
   const [bannerIndex, setBannerIndex] = useState(0);
 
