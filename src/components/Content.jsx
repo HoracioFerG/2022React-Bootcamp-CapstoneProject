@@ -12,3 +12,5 @@ export const Content = () => {
     </>
   );
 };
+
+export default Content;

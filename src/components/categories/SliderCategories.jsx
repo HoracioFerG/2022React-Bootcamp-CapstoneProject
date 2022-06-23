@@ -5,20 +5,23 @@ import { Category } from "./Category";
 import style from "./SliderCategories.module.css";
 
 export const SliderCategories = () => {
-
-  const { data, isLoading } = useCustomAPI('category');
+  const { data, isLoading } = useCustomAPI("category");
 
   return (
     <div className={style.sliderCategoriesContainer}>
-      {
-        (isLoading) ?
+      {isLoading ? (
         <></>
-        :
+      ) : (
         data.results.map((category) => {
-          return <Category key={category.id} data={category.data} />;
-        })}
-      
-      
+          return (
+            <Category
+              key={category.id}
+              data={category.data}
+              idCategory={category.id}
+            />
+          );
+        })
+      )}
     </div>
   );
 };

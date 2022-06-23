@@ -4,9 +4,13 @@ import { categoriesData } from "../assets/categories";
 import { products } from "../assets/featured2";
 import { ProductItem } from "../components/products/ProductItem.jsx";
 import loadingGif from "../assets/loading-gif.gif";
+import { useSearchParams } from "react-router-dom";
 
 export const ProductsHomePage = () => {
   const { results: categories } = categoriesData;
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const params = searchParams.get("products");
 
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [filters, setFilters] = useState([]);
@@ -46,7 +50,7 @@ export const ProductsHomePage = () => {
     setTimeout(() => {
       setLoading(!loading);
     }, 1500);
-  }, [filters]);
+  }, [filters, params]);
 
   return (
     <ProductsHomeContainer>
@@ -88,3 +92,5 @@ export const ProductsHomePage = () => {
     </ProductsHomeContainer>
   );
 };
+
+export default ProductsHomePage;
