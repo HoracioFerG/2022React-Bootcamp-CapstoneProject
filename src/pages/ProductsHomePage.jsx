@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import ProductsHomeContainer from "./ProductsHomePage";
-import { categoriesData } from "../assets/categories";
 import { products } from "../assets/featured2";
 import { ProductItem } from "../components/products/ProductItem.jsx";
 import loadingGif from "../assets/loading-gif.gif";
+import { useCustomAPI } from "../utils/hooks/useCustomAPI";
 
 export const ProductsHomePage = () => {
-  const { results: categories } = categoriesData;
+  const { data: categoriesData, isLoading: isCategoriesLoading } =
+    useCustomAPI("category");
 
   const [searchParams, setSearchParams] = useSearchParams();
   const params = searchParams.get("products");
-  console.log(params);
+  console.log(categoriesData, isCategoriesLoading);
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [filters, setFilters] = useState(params ? params.split(",") : []);
   const [loading, setLoading] = useState(true);
@@ -59,17 +60,21 @@ export const ProductsHomePage = () => {
     <ProductsHomeContainer>
       <div className="categoriesMenu">
         <h4 style={{ textDecoration: "underline" }}>Categories</h4>
-        {categories.map((category) => {
-          return (
-            <p
-              onClick={handleOnCategoryClick}
-              key={category.id}
-              id={category.id}
-            >
-              {category.data.name}
-            </p>
-          );
-        })}
+        {isCategoriesLoading ? (
+          <></>
+        ) : (
+          categoriesData.results.map((category) => {
+            return (
+              <p
+                onClick={handleOnCategoryClick}
+                key={category.id}
+                id={category.id}
+              >
+                {category.data.name}
+              </p>
+            );
+          })
+        )}
       </div>
 
       <img

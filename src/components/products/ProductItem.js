@@ -16,18 +16,32 @@ const ProductItemContainer = styled.div`
     cursor: pointer;
     border-color: white;
     box-shadow: 2px 2px 5px 1px #999;
-    img {
+    .product-image {
       border-bottom: black;
       border-width: 1px;
       border-style: solid;
     }
   }
 
-  img {
+  .imageContainer {
+    position: relative;
+    display: inline-block;
+  }
+  .product-image {
     max-width: 200px;
     position: relative;
-    display: flex;
+    display: block;
     border-radius: 10px;
+    margin: auto;
+  }
+  .bagLogo {
+    position: absolute;
+    max-width: 25px;
+    top: 1em;
+    right: 0;
+    :hover {
+      background-color: rgba(224, 223, 223, 0.8);
+    }
   }
 
   .productName {
