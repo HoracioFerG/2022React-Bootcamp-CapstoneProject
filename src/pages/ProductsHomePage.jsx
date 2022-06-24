@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
 import ProductsHomeContainer from "./ProductsHomePage";
 import { categoriesData } from "../assets/categories";
 import { products } from "../assets/featured2";
 import { ProductItem } from "../components/products/ProductItem.jsx";
 import loadingGif from "../assets/loading-gif.gif";
-import { useSearchParams } from "react-router-dom";
 
 export const ProductsHomePage = () => {
   const { results: categories } = categoriesData;
 
   const [searchParams, setSearchParams] = useSearchParams();
   const params = searchParams.get("products");
-
+  console.log(params);
   const [filteredProducts, setFilteredProducts] = useState(products);
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState(params ? params.split(",") : []);
   const [loading, setLoading] = useState(true);
 
   const handleOnCategoryClick = (e) => {
     const isClicked = e.target;
+
     setLoading(!loading);
     setTimeout(() => {
       if (!isClicked.className) {
@@ -34,6 +36,7 @@ export const ProductsHomePage = () => {
 
   useEffect(() => {
     if (filters.length > 0) {
+      setSearchParams(`products=${filters.toString()}`);
       const newProducts = products.filter((product) => {
         const existingProduct = filters.includes(product.data.category.id);
 
@@ -50,11 +53,12 @@ export const ProductsHomePage = () => {
     setTimeout(() => {
       setLoading(!loading);
     }, 1500);
-  }, [filters, params]);
+  }, [filters]);
 
   return (
     <ProductsHomeContainer>
       <div className="categoriesMenu">
+        <h4 style={{ textDecoration: "underline" }}>Categories</h4>
         {categories.map((category) => {
           return (
             <p

@@ -4,7 +4,7 @@ import { BannerItem } from "./BannerItem";
 import { useCustomAPI } from "../../utils/hooks/useCustomAPI";
 
 export const Carousel = () => {
-  const { data, isLoading } = useCustomAPI('banner');
+  const { data, isLoading } = useCustomAPI("banner");
 
   const [bannerIndex, setBannerIndex] = useState(0);
 
