@@ -4,7 +4,7 @@ import { useProductDetail } from "../../utils/hooks/useProductDetail";
 import ProductDetailContainer from "./ProductDetail";
 
 export const ProductDetail = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const params = searchParams.get("productID");
   const { data, isLoading } = useProductDetail("product", params);
 

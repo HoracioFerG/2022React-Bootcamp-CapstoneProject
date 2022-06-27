@@ -16,6 +16,11 @@ const ProductDetail = lazy(() =>
     /* webpackChunkName: "ProductDetailPage" */ "../components/products/ProductDetail.jsx"
   )
 );
+const SearchResult = lazy(() =>
+  import(
+    /* webpackChunkName: "SearchResultPage" */ "../components/search/SearchResults.jsx"
+  )
+);
 const ProductsHomePage = lazy(() =>
   import(
     /* webpackChunkName: "ProductsHomePage" */ "../pages/ProductsHomePage.jsx"
@@ -63,7 +68,11 @@ export const routes = [
       },
     ],
   },
-
+  {
+    path: "/search",
+    to: "/search",
+    Component: SearchResult,
+  },
   {
     path: "*",
     to: "*",
