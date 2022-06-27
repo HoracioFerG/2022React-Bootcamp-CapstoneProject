@@ -7,6 +7,23 @@ const ProductDetailContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   margin: 20px;
   height: 100vh;
+
+  .sliderContainer {
+    padding: 15px;
+  }
+
+  .productInformation {
+    background-color: red;
+    padding: 15px;
+
+    h3 {
+      text-align: center;
+    }
+    hr {
+      width: 75%;
+      left: 0;
+    }
+  }
 `;
 
 export default ProductDetailContainer;
