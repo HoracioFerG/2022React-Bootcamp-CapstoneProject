@@ -1,5 +1,5 @@
 export const getFormattedPrices = (price) => {
-  const upPrice = Math.random() * 500;
+  const upPrice = Math.random() * price;
   const originalPrice = (price + upPrice)
     .toFixed(2)
     .toString()

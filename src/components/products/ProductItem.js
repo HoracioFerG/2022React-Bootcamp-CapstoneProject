@@ -3,23 +3,22 @@ import styled from "styled-components";
 const ProductItemContainer = styled.div`
   margin: 8px;
   position: relative;
-  max-width: 200px;
-  background-color: rgba(224, 223, 223, 0.5);
+  max-width: 203px;
+  background-color: rgb(220, 215, 201);
   border-radius: 10px;
-
-  border-color: #6f6f6f;
+  border: 5px solid white;
+  /* border-color: #6f6f6f;
   border-width: 1px;
   border-style: solid;
+  box-shadow: 2px 2px 5px 1px #999; */
 
   :hover {
     background-color: white;
     cursor: pointer;
     border-color: white;
-    box-shadow: 2px 2px 5px 1px #999;
+
     .product-image {
-      border-bottom: black;
-      border-width: 1px;
-      border-style: solid;
+      box-shadow: 0px 0px 15px -3px rgba(95, 113, 97, 1);
     }
   }
 
@@ -31,8 +30,15 @@ const ProductItemContainer = styled.div`
     max-width: 200px;
     position: relative;
     display: block;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     margin: auto;
+    border-radius: 10px;
+    border-top: white;
+    border-left: white;
+    border-right: white;
+    border-bottom: #6d8b74;
+    border-width: 3px;
+    border-style: solid;
   }
   .bagLogo {
     position: absolute;
@@ -79,7 +85,7 @@ const ProductItemContainer = styled.div`
   .discount {
     font-weight: bold;
     text-align: right;
-    color: #52bf32;
+    color: rgb(95, 113, 97);
     font-size: medium;
     padding-bottom: 20px;
   }

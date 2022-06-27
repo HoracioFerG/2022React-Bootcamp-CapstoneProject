@@ -13,7 +13,7 @@
 }
 
 .categoryContainer :hover {
-  box-shadow: 5px 8px 8px 8px #999;
+  box-shadow: 0px 10px 15px -3px rgba(225,191,146, 1);
 }
 
 @-moz-document url-prefix() {

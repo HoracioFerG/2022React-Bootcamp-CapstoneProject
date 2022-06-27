@@ -6,7 +6,9 @@ export function useCustomAPI(
   type,
   queryCategories = "",
   queryTags = [],
-  pageSize = 5
+  pageSize = 5,
+  page = 1,
+  nextPage = ""
 ) {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [results, setResults] = useState(() => ({
@@ -36,20 +38,18 @@ export function useCustomAPI(
                 }])]`
               : "",
         };
-        console.log(
-          `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
-            `[[at(document.type, "${type}")]${queryParams.tags}${queryParams.categories}]`
-          )}&lang=en-us&pageSize=${pageSize}`
-        );
+        console.log(page, nextPage);
+        const url =
+          nextPage.length > 0
+            ? nextPage
+            : `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
+                `[[at(document.type, "${type}")]${queryParams.tags}${queryParams.categories}]`
+              )}&lang=en-us&page=${page}&pageSize=${pageSize}`;
 
-        const response = await fetch(
-          `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
-            `[[at(document.type, "${type}")]${queryParams.tags}${queryParams.categories}]`
-          )}&lang=en-us&pageSize=${pageSize}`,
-          {
-            signal: controller.signal,
-          }
-        );
+        console.log(url);
+        const response = await fetch(url, {
+          signal: controller.signal,
+        });
         const data = await response.json();
 
         setResults({ data, isLoading: false });
@@ -64,7 +64,7 @@ export function useCustomAPI(
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading, type]);
+  }, [apiRef, isApiMetadataLoading, type, queryCategories, page, nextPage]);
 
   return results;
 }

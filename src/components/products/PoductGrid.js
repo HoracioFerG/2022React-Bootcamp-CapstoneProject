@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FeaturedProductGrid = styled.div`
-  background-color: rgba(232, 232, 232, 0.7);
+  background-color: white;
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;

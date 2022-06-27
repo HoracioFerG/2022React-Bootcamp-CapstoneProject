@@ -1,64 +1,80 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-
 import ProductsHomeContainer from "./ProductsHomePage";
-import { products } from "../assets/featured2";
 import { ProductItem } from "../components/products/ProductItem.jsx";
 import loadingGif from "../assets/loading-gif.gif";
 import { useCustomAPI } from "../utils/hooks/useCustomAPI";
 
 export const ProductsHomePage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoriesContainerRef = useRef(null);
+  const params = searchParams.get("products");
+
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filters, setFilters] = useState(params ? params.split(",") : []);
+  const [pagination, setPagination] = useState({ page: 1, nextPage: "" });
+  const { data: productsResults, isLoading: isProductsLoading } = useCustomAPI(
+    "product",
+    filters,
+    [],
+    12,
+    pagination.page,
+    pagination.nextPage
+  );
+
   const { data: categoriesData, isLoading: isCategoriesLoading } =
     useCustomAPI("category");
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const params = searchParams.get("products");
-  console.log(categoriesData, isCategoriesLoading);
-  const [filteredProducts, setFilteredProducts] = useState(products);
-  const [filters, setFilters] = useState(params ? params.split(",") : []);
-  const [loading, setLoading] = useState(true);
-
   const handleOnCategoryClick = (e) => {
     const isClicked = e.target;
+    setPagination({ page: 1, nextPage: "" });
+    if (!isClicked.className) {
+      isClicked.className = "clicked";
+      setFilters((filters) => [...filters, isClicked.id]);
+    } else {
+      isClicked.className = "";
+      setFilters((filters) => filters.filter((val, i) => val !== isClicked.id));
+    }
+  };
 
-    setLoading(!loading);
-    setTimeout(() => {
-      if (!isClicked.className) {
-        isClicked.className = "clicked";
-        setFilters((filters) => [...filters, isClicked.id]);
-      } else {
-        isClicked.className = "";
-        setFilters((filters) =>
-          filters.filter((val, i) => val !== isClicked.id)
-        );
+  const applyFilterStyle = (isOnOff) => {
+    const childs = Object.entries(categoriesContainerRef.current.childNodes);
+    for (let i = 0; i < childs.length; i++) {
+      const element = childs[i];
+      if (filters.includes(element[1].id)) {
+        element[1].className = isOnOff;
       }
-    }, 1500);
+    }
+  };
+
+  const getPagination = (maxPage) => {
+    const options = [];
+    for (let i = 0; i < maxPage; i++) {
+      options.push(
+        <option key={i + 1} value={i + 1}>
+          {i + 1}
+        </option>
+      );
+    }
+    return options;
   };
 
   useEffect(() => {
-    if (filters.length > 0) {
+    if (params?.length > 0 || filters.length > 0) {
       setSearchParams(`products=${filters.toString()}`);
-      const newProducts = products.filter((product) => {
-        const existingProduct = filters.includes(product.data.category.id);
-
-        if (existingProduct) {
-          return product;
-        } else {
-          return null;
-        }
-      });
-      setFilteredProducts(newProducts);
-    } else {
-      setFilteredProducts(products);
+      applyFilterStyle("clicked");
     }
-    setTimeout(() => {
-      setLoading(!loading);
-    }, 1500);
-  }, [filters]);
+
+    if (isProductsLoading) {
+      return;
+    }
+
+    setFilteredProducts(productsResults.results);
+  }, [filters, isProductsLoading, pagination]);
 
   return (
     <ProductsHomeContainer>
-      <div className="categoriesMenu">
+      <div className="categoriesMenu" ref={categoriesContainerRef}>
         <h4 style={{ textDecoration: "underline" }}>Categories</h4>
         {isCategoriesLoading ? (
           <></>
@@ -75,27 +91,64 @@ export const ProductsHomePage = () => {
             );
           })
         )}
+        <hr />
+        <p
+          onClick={() => {
+            setFilters([]);
+            applyFilterStyle("");
+            setPagination({ page: 1, nextPage: "" });
+          }}
+        >
+          Clear filters
+        </p>
       </div>
 
       <img
         src={loadingGif}
         alt="loadingGif"
-        style={{ display: loading ? "block" : "none" }}
+        style={{ display: isProductsLoading ? "block" : "none" }}
       />
       <div
         className="productsContainer"
-        style={{ display: !loading ? "" : "none" }}
+        style={{ display: !isProductsLoading ? "" : "none" }}
       >
         <div className="productsGrid">
-          {filteredProducts.map((product) => {
-            return <ProductItem key={product.id} product={product} />;
-          })}
+          {isProductsLoading ? (
+            <></>
+          ) : (
+            filteredProducts.map((product) => {
+              return <ProductItem key={product.id} product={product} />;
+            })
+          )}
         </div>
         <div className="paginationContainer">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>4</button>
+          <select
+            name="paginationSelec"
+            id="paginationSelect"
+            value={pagination.page}
+            onChange={(e, pagination) =>
+              setPagination({ ...pagination, page: e.target.value })
+            }
+          >
+            {isProductsLoading ? (
+              <></>
+            ) : (
+              getPagination(productsResults.total_pages).map((opt) => opt)
+            )}
+          </select>
+          {productsResults.next_page && (
+            <p
+              className="nextButton"
+              onClick={(pagination) =>
+                setPagination({
+                  page: productsResults.page + 1,
+                  nextPage: productsResults.next_page,
+                })
+              }
+            >
+              Next page
+            </p>
+          )}
         </div>
       </div>
     </ProductsHomeContainer>

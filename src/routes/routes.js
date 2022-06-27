@@ -10,6 +10,12 @@ const Content = lazy(() =>
 const PageNotFound = lazy(() =>
   import(/* webpackChunkName: "PageNotFound" */ "../pages/PageNotFound")
 );
+
+const ProductDetail = lazy(() =>
+  import(
+    /* webpackChunkName: "ProductDetailPage" */ "../components/products/ProductDetail.jsx"
+  )
+);
 const ProductsHomePage = lazy(() =>
   import(
     /* webpackChunkName: "ProductsHomePage" */ "../pages/ProductsHomePage.jsx"
@@ -51,9 +57,9 @@ export const routes = [
         Component: LoadingPage,
       },
       {
-        path: "product-detail",
-        to: "products/product-detail",
-        Component: PageNotFound,
+        path: "/products/product",
+        to: "/products/product",
+        Component: ProductDetail,
       },
     ],
   },

@@ -3,15 +3,19 @@ import PropTypes from "prop-types";
 import ProductItemContainer from "./ProductItem.js";
 import { getFormattedPrices, setCamelCase } from "../../utils/productsUtils.js";
 import bagLogo from "../../assets/bag-icon.png";
+import { useNavigate } from "react-router-dom";
 
 export const ProductItem = ({ product }) => {
+  const navigate = useNavigate();
   const { originalPrice, priceOnDiscount, save } = getFormattedPrices(
     product.data.price
   );
   const category = setCamelCase(product.data.category.slug);
 
   return (
-    <ProductItemContainer>
+    <ProductItemContainer
+      onClick={() => navigate(`/products/product?productID=${product.id}`)}
+    >
       <div className="imageContainer">
         <img
           className="product-image"
