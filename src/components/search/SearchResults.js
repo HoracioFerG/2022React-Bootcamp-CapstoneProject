@@ -2,10 +2,51 @@ import styled from "styled-components";
 
 const SearchResultsContainer = styled.div`
   border-radius: 10px;
-  background-color: aliceblue;
+  background-color: white;
+  box-shadow: 0px 0px 15px -3px rgba(95, 113, 97, 1);
   display: flex;
   margin: 20px;
   height: 100vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .productsGrid {
+    width: 100%;
+    max-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    overflow-y: scroll;
+  }
+  .paginationContainer {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+
+    .nextButton {
+      cursor: pointer;
+      color: black;
+      padding-left: 10px;
+      font-weight: bold;
+    }
+    button {
+      margin: 5px;
+      border-radius: 6px;
+      border-width: 1px;
+      border-color: black;
+      border-style: solid;
+      background-color: white;
+      font-size: 15px;
+      cursor: pointer;
+
+      :hover {
+        background-color: rgba(226, 226, 226, 0.5);
+      }
+    }
+  }
 `;
 
 export default SearchResultsContainer;

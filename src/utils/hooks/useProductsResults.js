@@ -2,7 +2,13 @@ import { useState, useEffect } from "react";
 import { API_BASE_URL } from "../constants";
 import { useLatestAPI } from "./useLatestAPI";
 
-export function useProductResults(type, searchTerm, pageSize = 20) {
+export function useProductResults(
+  type,
+  searchTerm,
+  pageSize = 20,
+  page = 1,
+  nextPage = ""
+) {
   const { ref: apiRef, isLoading: isApiMetadataLoading } = useLatestAPI();
   const [results, setResults] = useState(() => ({
     data: {},
@@ -19,14 +25,16 @@ export function useProductResults(type, searchTerm, pageSize = 20) {
     async function getAPIResults() {
       try {
         setResults({ data: {}, isLoading: true });
-        const response = await fetch(
-          `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
-            `[[at(document.type, "${type}")][fulltext(document, "${searchTerm}")]]`
-          )}&lang=en-us&pageSize=${pageSize}`,
-          {
-            signal: controller.signal,
-          }
-        );
+        const url =
+          nextPage.length > 0
+            ? nextPage
+            : `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
+                `[[at(document.type, "${type}")][fulltext(document, "${searchTerm}")]]`
+              )}&lang=en-us&pageSize=${pageSize}&page=${page}`;
+
+        const response = await fetch(url, {
+          signal: controller.signal,
+        });
         const data = await response.json();
 
         setResults({ data, isLoading: false });
@@ -41,7 +49,7 @@ export function useProductResults(type, searchTerm, pageSize = 20) {
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading]);
+  }, [apiRef, isApiMetadataLoading, page]);
 
   return results;
 }

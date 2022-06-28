@@ -20,6 +20,13 @@ export const getFormattedPrices = (price) => {
   };
 };
 
+export const formatPrice = (price) => {
+  return price
+    .toFixed(2)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 export const setCamelCase = (word) => {
   return word.replace(/([A-Z])/g, " $1").replace(/^./, function (str) {
     return str.toUpperCase();

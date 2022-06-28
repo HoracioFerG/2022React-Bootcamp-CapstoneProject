@@ -8,12 +8,16 @@ export const NoProductsFound = () => {
         display: "flex",
         flexDirection: "column",
         width: "100%",
-        alignContent: "center",
+        alignItems: "center",
       }}
     >
       <h1>{`Sorry!`} </h1>
-      <h3>We couldn't found what you're looking for</h3>
-      <img src={noFoundImg} alt="no-product-found" />
+      <h3>We couldn't find what you were looking for</h3>
+      <img
+        src={noFoundImg}
+        style={{ width: "initial" }}
+        alt="no-product-found"
+      />
     </div>
   );
 };

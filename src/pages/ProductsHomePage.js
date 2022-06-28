@@ -8,25 +8,6 @@ const ProductsHomeContainer = styled.div`
   max-height: 90vh;
   background-color: rgba(225, 191, 146, 0.2);
 
-  .categoriesMenu {
-    width: 20%;
-    border-left: 0 0 transparent;
-    border-right: 1px solid black;
-    border-top: 0 0 transparent;
-    border-bottom: 0 0 transparent;
-    position: sticky;
-    padding: 5px;
-
-    p {
-      cursor: pointer;
-
-      :hover {
-        text-decoration: underline;
-        color: gray;
-      }
-    }
-  }
-
   .clicked {
     text-decoration: underline;
     color: gray;

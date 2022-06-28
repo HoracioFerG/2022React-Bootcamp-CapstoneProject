@@ -11,7 +11,14 @@ const ProductItemContainer = styled.div`
   border-width: 1px;
   border-style: solid;
   box-shadow: 2px 2px 5px 1px #999; */
-
+  .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
   :hover {
     background-color: white;
     cursor: pointer;
