@@ -15,10 +15,8 @@ export const ProductDetail = () => {
   const upPrice = useMemo(() => Math.random() * 100, []);
 
   const { data: productData, isLoading } = useProductDetail("product", params);
-  console.log(productData);
 
   const handleMoreProduct = () => {
-    console.log(productData.results[0].data.stock);
     if (productQuantity + 1 <= productData.results[0].data.stock) {
       setProductQuantity(productQuantity + 1);
     }
@@ -76,13 +74,16 @@ export const ProductDetail = () => {
             <p className="productDescription">
               {productData.results[0].data.short_description}
             </p>
-            {productData.results[0].data.specs.map((spec) => {
-              return (
-                <p>
-                  <b>{spec.spec_name}</b>: {spec.spec_value}
-                </p>
-              );
-            })}
+            <div className="specsContainer">
+              {productData.results[0].data.specs.map((spec) => {
+                return (
+                  <p className="spec">
+                    <b className="specName">{spec.spec_name}</b>:{" "}
+                    {spec.spec_value}
+                  </p>
+                );
+              })}
+            </div>
             <div className="addToCartBtn">
               <button>Add to cart</button>
             </div>

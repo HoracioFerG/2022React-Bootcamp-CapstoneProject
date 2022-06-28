@@ -6,7 +6,7 @@ const ProductsHomeContainer = styled.div`
   position: relative;
   flex-direction: row;
   max-height: 90vh;
-  background-color: rgba(225, 191, 146, 0.2);
+  background-color: rgba(240, 235, 227, 0.5);
 
   .clicked {
     text-decoration: underline;
@@ -30,10 +30,21 @@ const ProductsHomeContainer = styled.div`
 
     .nextButton {
       cursor: pointer;
-      color: black;
+      color: #576f72;
       padding-left: 10px;
       font-weight: bold;
     }
+
+    select {
+      min-width: 4px;
+      max-height: 50px;
+      background-color: transparent;
+      border: 0;
+      option {
+        background-color: rgba(240, 235, 227, 0.5);
+      }
+    }
+
     button {
       margin: 5px;
       border-radius: 6px;
@@ -43,6 +54,7 @@ const ProductsHomeContainer = styled.div`
       background-color: white;
       font-size: 15px;
       cursor: pointer;
+      color: #7d9d9c;
 
       :hover {
         background-color: rgba(226, 226, 226, 0.5);

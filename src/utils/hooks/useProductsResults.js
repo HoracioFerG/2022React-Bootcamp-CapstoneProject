@@ -49,7 +49,7 @@ export function useProductResults(
     return () => {
       controller.abort();
     };
-  }, [apiRef, isApiMetadataLoading, page]);
+  }, [apiRef, isApiMetadataLoading, page, searchTerm]);
 
   return results;
 }

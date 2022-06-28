@@ -1,8 +1,4 @@
 import { lazy } from "react";
-// import { LoadingPage } from "../pages/LoadingPage";
-// import { Content } from "../components/Content";
-// import { PageNotFound } from "../pages/PageNotFound";
-// import { ProductsHomePage } from "../pages/ProductsHomePage.jsx";
 
 const Content = lazy(() =>
   import(/* webpackChunkName: "Content" */ "../components/Content")

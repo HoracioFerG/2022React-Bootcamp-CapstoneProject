@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./Header";
 import smLogo from "../assets/logo-50.png";
@@ -6,6 +6,11 @@ import smCart from "../assets/cart-64.png";
 
 export const Header = () => {
   const navigate = useNavigate();
+  const refSearch = useRef(null);
+  const handleOnSearch = (e) => {
+    navigate(`/search/?querySearch=${refSearch.current.value}`);
+  };
+
   return (
     <NavBar>
       <div className="leftSideHeader">
@@ -19,11 +24,16 @@ export const Header = () => {
       </div>
       <div className="rightSideHeader">
         <input
+          ref={refSearch}
           type="text"
           className="search-input"
           placeholder="King size bed"
         />
-        <a href="/" className="cart-logo">
+        <button onClick={handleOnSearch} className="searchButton">
+          Search
+        </button>
+
+        <a href="/#" className="cart-logo">
           <img src={smCart} alt="cart-logo" />
         </a>
       </div>

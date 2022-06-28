@@ -19,7 +19,6 @@ export const SearchResults = () => {
       pagination.nextPage
     );
 
-  console.log(pagination);
   return (
     <SearchResultsContainer>
       {isProductsResultsLoading ? (

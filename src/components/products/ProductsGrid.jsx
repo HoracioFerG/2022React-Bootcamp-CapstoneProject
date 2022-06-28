@@ -11,7 +11,7 @@ export const ProductsGrid = () => {
     ["Featured"],
     16
   );
-  console.log(isLoading, products);
+
   const navigate = useNavigate();
   return (
     <FeaturedProductGrid>

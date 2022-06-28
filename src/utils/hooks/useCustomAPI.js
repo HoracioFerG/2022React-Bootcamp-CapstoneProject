@@ -38,7 +38,7 @@ export function useCustomAPI(
                 }])]`
               : "",
         };
-        console.log(page, nextPage);
+
         const url =
           nextPage.length > 0
             ? nextPage
@@ -46,7 +46,6 @@ export function useCustomAPI(
                 `[[at(document.type, "${type}")]${queryParams.tags}${queryParams.categories}]`
               )}&lang=en-us&page=${page}&pageSize=${pageSize}`;
 
-        console.log(url);
         const response = await fetch(url, {
           signal: controller.signal,
         });

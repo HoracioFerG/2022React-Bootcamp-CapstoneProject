@@ -4,28 +4,30 @@ const ProductItemContainer = styled.div`
   margin: 8px;
   position: relative;
   max-width: 203px;
-  background-color: rgb(220, 215, 201);
+  background-color: white;
   border-radius: 10px;
-  border: 5px solid white;
+  /* border: 5px solid white; */
   /* border-color: #6f6f6f;
   border-width: 1px;
   border-style: solid;
   box-shadow: 2px 2px 5px 1px #999; */
   .text {
     overflow: hidden;
+    margin: 5px;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3; /* number of lines to show */
     line-clamp: 3;
     -webkit-box-orient: vertical;
+    color: rgba(87, 111, 114, 0.7);
+    font-weight: bold;
   }
   :hover {
     background-color: white;
     cursor: pointer;
-    border-color: white;
-
+    border-color: "#B55400";
+    box-shadow: 0px 0px 15px -3px rgb(125, 157, 156);
     .product-image {
-      box-shadow: 0px 0px 15px -3px rgba(95, 113, 97, 1);
     }
   }
 
@@ -40,10 +42,10 @@ const ProductItemContainer = styled.div`
     /* border-radius: 10px; */
     margin: auto;
     border-radius: 10px;
-    border-top: white;
-    border-left: white;
-    border-right: white;
-    border-bottom: #6d8b74;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: rgba(125, 157, 156, 0.5);
     border-width: 3px;
     border-style: solid;
   }
@@ -53,20 +55,20 @@ const ProductItemContainer = styled.div`
     top: 1em;
     right: 0;
     :hover {
-      background-color: rgba(224, 223, 223, 0.8);
+      background-color: rgb(125, 157, 156, 0.5);
     }
   }
 
   .productName {
     font-weight: bold;
-    /* color: #8b7031; */
+    color: rgb(87, 111, 114);
     margin-bottom: 0;
     margin-top: 5px;
     margin-left: 5px;
   }
 
   .productCategory {
-    color: #6f6f6f;
+    color: rgba(87, 111, 114, 0.6);
     margin-left: 5px;
   }
 
@@ -80,19 +82,17 @@ const ProductItemContainer = styled.div`
     font-weight: bold;
     text-align: right;
   }
-  .priceContainer {
-    background-color: red;
-  }
 
   .priceDiscount {
     text-align: right;
     font-size: medium;
+    color: rgb(125, 157, 156, 0.9);
   }
 
   .discount {
     font-weight: bold;
     text-align: right;
-    color: rgb(95, 113, 97);
+    color: rgba(87, 111, 114, 2);
     font-size: medium;
     padding-bottom: 20px;
   }
@@ -109,6 +109,7 @@ const ProductItemContainer = styled.div`
     left: 0;
     margin-left: 0;
     margin-top: 0;
+    color: rgb(125, 157, 156);
   }
 `;
 

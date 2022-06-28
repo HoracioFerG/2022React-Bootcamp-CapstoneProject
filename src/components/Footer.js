@@ -15,6 +15,7 @@ const FooterComponent = styled.footer`
 
   h5 {
     text-align: center;
+    color: rgb(87, 111, 114);
   }
 `;
 

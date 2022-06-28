@@ -3,25 +3,42 @@ import styled from "styled-components";
 const ProductDetailContainer = styled.div`
   border-radius: 10px;
   background-color: white;
-  box-shadow: 0px 0px 15px -3px rgba(95, 113, 97, 1);
+  box-shadow: 0px 0px 15px -3px rgb(125, 157, 156);
   display: flex;
   flex-wrap: nowrap;
+  flex-direction: row;
   margin: 20px;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   width: auto;
+
+  .specsContainer {
+    .spec {
+      color: rgba(87, 111, 114, 0.8);
+    }
+    .specName {
+      color: rgb(87, 111, 114);
+    }
+  }
+
   .addToCartBtn {
     display: flex;
     align-items: center;
     flex-direction: column;
     button {
       cursor: pointer;
-      width: 20%;
+      width: 150px;
       border-radius: 5px;
       padding: 20px;
       align-items: center;
       font-size: large;
       border: 1px, solid, black;
-      background-color: transparent;
+      background-color: rgb(125, 157, 156);
+      color: white;
+
+      :hover {
+        background-color: rgb(87, 111, 114);
+      }
     }
   }
   .tagsContainer {
@@ -30,10 +47,12 @@ const ProductDetailContainer = styled.div`
     align-items: baseline;
     p {
       margin: 0;
+      color: rgb(125, 157, 156);
     }
   }
   .productDescription {
     text-align: justify;
+    color: rgba(87, 111, 114, 0.7);
   }
   .priceContainer {
     display: flex;
@@ -46,9 +65,12 @@ const ProductDetailContainer = styled.div`
       color: gray;
       margin-bottom: 0;
     }
+    h2 {
+      color: rgb(125, 157, 156, 0.9);
+    }
 
     .savePrice {
-      color: gray;
+      color: rgba(87, 111, 114, 2);
       margin: 0;
     }
   }
@@ -62,8 +84,18 @@ const ProductDetailContainer = styled.div`
     padding: 15px;
     width: 60%;
 
+    label {
+      color: rgb(87, 111, 114);
+    }
+
+    h4 {
+      color: rgb(87, 111, 114);
+    }
+    h1 {
+      color: rgb(87, 111, 114);
+    }
     .btn-group button {
-      background-color: #04aa6d; //change color
+      background-color: rgb(125, 157, 156);
       border: 1px black;
       color: white;
       padding: 10px 15px;
@@ -85,7 +117,7 @@ const ProductDetailContainer = styled.div`
 
     /* Add a background color on hover */
     .btn-group button:hover {
-      background-color: #3e8e41;
+      background-color: rgb(87, 111, 114);
     }
     h3 {
       text-align: center;
@@ -93,6 +125,7 @@ const ProductDetailContainer = styled.div`
     hr {
       width: 100%;
       left: 0;
+      color: rgb(125, 157, 156);
     }
   }
 `;

@@ -9,8 +9,10 @@ const SearchResultsContainer = styled.div`
   height: 100vh;
   flex-direction: row;
   flex-wrap: wrap;
+  background-color: rgba(240, 235, 227, 0.5);
 
   .productsGrid {
+    margin: 10px;
     width: 100%;
     max-height: 80vh;
     display: flex;
@@ -25,7 +27,15 @@ const SearchResultsContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     width: 100%;
-
+    select {
+      min-width: 4px;
+      max-height: 50px;
+      background-color: transparent;
+      border: 0;
+      option {
+        background-color: rgba(240, 235, 227, 0.5);
+      }
+    }
     .nextButton {
       cursor: pointer;
       color: black;
