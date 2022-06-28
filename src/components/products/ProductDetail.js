@@ -3,18 +3,21 @@ import styled from "styled-components";
 const ProductDetailContainer = styled.div`
   border-radius: 10px;
   background-color: aliceblue;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: nowrap;
   margin: 20px;
   height: 100vh;
+  width: auto;
 
   .sliderContainer {
+    width: 40%;
     padding: 15px;
   }
 
   .productInformation {
     background-color: red;
     padding: 15px;
+    width: 60%;
 
     h3 {
       text-align: center;

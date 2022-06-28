@@ -6,7 +6,7 @@ import ProductDetailContainer from "./ProductDetail";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export const ProductDetail = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [productQuantity, setProductQuantity] = useState(1);
   const params = searchParams.get("productID");
 
@@ -40,10 +40,14 @@ export const ProductDetail = () => {
       ) : (
         <>
           <div className="sliderContainer">
-            <Carousel autoPlay={true} infiniteLoop={true}>
+            <Carousel autoPlay={true} infiniteLoop={true} dynamicHeight={true}>
               {productData.results[0].data.images.map((element, i) => (
                 <div key={i}>
-                  <img src={element.image.url} alt={`image${i}`} />
+                  <img
+                    src={element.image.url}
+                    style={{ maxHeight: "500px" }}
+                    alt={`image${i}`}
+                  />
                 </div>
               ))}
             </Carousel>
