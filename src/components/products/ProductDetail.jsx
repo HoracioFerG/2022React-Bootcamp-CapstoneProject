@@ -30,15 +30,13 @@ export const ProductDetail = () => {
 
   return (
     <ProductDetailContainer>
-      {isLoading ? (
-        <></>
-      ) : (
+      {!isLoading && (
         <>
           <div className="sliderContainer">
             <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false}>
               {productData.results[0].data.images.map((element, i) => (
                 <div key={i}>
-                  <img src={element.image.url} alt={`image${i}`} />
+                  <img src={element.image.url} alt={`element${i}`} />
                 </div>
               ))}
             </Carousel>

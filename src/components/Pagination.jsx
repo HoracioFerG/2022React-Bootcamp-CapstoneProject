@@ -1,8 +1,7 @@
 import React from "react";
 
 export const Pagination = ({
-  pagination,
-  setPagination,
+  handlePageChange,
   total_pages,
   next_page,
   page,
@@ -23,22 +22,15 @@ export const Pagination = ({
       <select
         name="paginationSelec"
         id="paginationSelect"
-        value={pagination.page}
-        onChange={(e, pagination) =>
-          setPagination({ ...pagination, page: e.target.value })
-        }
+        value={page}
+        onChange={(e) => handlePageChange(parseInt(e.target.value))}
       >
-        {getPagination(total_pages).map((opt) => opt)}
+        {getPagination(total_pages)}
       </select>
       {next_page && (
         <p
           className="nextButton"
-          onClick={(pagination) =>
-            setPagination({
-              page: page + 1,
-              nextPage: next_page,
-            })
-          }
+          onClick={() => handlePageChange((page) => page + 1)}
         >
           Next page
         </p>

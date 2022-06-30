@@ -25,9 +25,7 @@ export const Carousel = () => {
 
   return (
     <>
-      {isLoading ? (
-        <></>
-      ) : (
+      {!isLoading && (
         <BannerItem
           key={data.results[bannerIndex].id}
           title={data.results[bannerIndex].data.title}

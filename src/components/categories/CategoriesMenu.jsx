@@ -16,14 +16,17 @@ export const CategoriesMenu = ({
       setFilters((filters) => [...filters, isClicked.id]);
     } else {
       isClicked.className = "";
-      setFilters((filters) => filters.filter((val, i) => val !== isClicked.id));
+      setFilters((filters) => filters.filter((val) => val !== isClicked.id));
     }
   };
 
   const applyFilterStyle = (isOnOff) => {
-    const childs = Object.entries(categoriesContainerRef.current.childNodes);
+    const childs = Object.entries(
+      categoriesContainerRef.current.childNodes[0].childNodes
+    );
     for (let i = 0; i < childs.length; i++) {
       const element = childs[i];
+
       if (filters.includes(element[1].id)) {
         element[1].className = isOnOff;
       }

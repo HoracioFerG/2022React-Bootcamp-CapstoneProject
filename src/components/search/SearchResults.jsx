@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useProductResults } from "../../utils/hooks/useProductsResults";
 import { Pagination } from "../Pagination";
@@ -21,9 +21,7 @@ export const SearchResults = () => {
 
   return (
     <SearchResultsContainer>
-      {isProductsResultsLoading ? (
-        <></>
-      ) : productsResults.results_size === 0 ? (
+      {!isProductsResultsLoading && productsResults.results_size === 0 ? (
         <NoProductsFound />
       ) : (
         <>

@@ -9,9 +9,7 @@ export const SliderCategories = () => {
 
   return (
     <div className={style.sliderCategoriesContainer}>
-      {isLoading ? (
-        <></>
-      ) : (
+      {!isLoading &&
         data.results.map((category) => {
           return (
             <Category
@@ -20,8 +18,7 @@ export const SliderCategories = () => {
               idCategory={category.id}
             />
           );
-        })
-      )}
+        })}
     </div>
   );
 };

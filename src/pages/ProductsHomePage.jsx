@@ -15,14 +15,15 @@ export const ProductsHomePage = () => {
 
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filters, setFilters] = useState(params ? params.split(",") : []);
-  const [pagination, setPagination] = useState({ page: 1, nextPage: "" });
+  const [pagination, setPagination] = useState(1);
+  const [nextPage, setNextPage] = useState("");
   const { data: productsResults, isLoading: isProductsLoading } = useCustomAPI(
     "product",
     filters,
     [],
     12,
-    pagination.page,
-    pagination.nextPage
+    pagination,
+    nextPage
   );
 
   const { data: categoriesData, isLoading: isCategoriesLoading } =
@@ -36,41 +37,39 @@ export const ProductsHomePage = () => {
     if (isProductsLoading) {
       return;
     }
-
+    // setNextPage(productsResults.next_page);
     setFilteredProducts(productsResults.results);
   }, [filters, isProductsLoading, pagination]);
 
   return (
     <ProductsHomeContainer>
-      {isCategoriesLoading ? (
-        <></>
-      ) : (
-        <CategoriesMenu
-          categories={categoriesData.results}
-          setPagination={setPagination}
-          setFilters={setFilters}
-          filters={filters}
-        />
+      {!isCategoriesLoading && (
+        <>
+          <CategoriesMenu
+            categories={categoriesData.results}
+            setPagination={setPagination}
+            setFilters={setFilters}
+            filters={filters}
+          />
+          <img
+            src={loadingGif}
+            alt="loadingGif"
+            style={{ display: isProductsLoading ? "block" : "none" }}
+          />
+          <div
+            className="productsContainer"
+            style={{ display: !isProductsLoading ? "" : "none" }}
+          >
+            <ProductsList filteredProducts={filteredProducts} />
+            <Pagination
+              handlePageChange={(page) => setPagination(page)}
+              total_pages={productsResults.total_pages}
+              next_page={productsResults.next_page}
+              page={productsResults.page}
+            />
+          </div>
+        </>
       )}
-
-      <img
-        src={loadingGif}
-        alt="loadingGif"
-        style={{ display: isProductsLoading ? "block" : "none" }}
-      />
-      <div
-        className="productsContainer"
-        style={{ display: !isProductsLoading ? "" : "none" }}
-      >
-        <ProductsList filteredProducts={filteredProducts} />
-        <Pagination
-          pagination={pagination}
-          setPagination={setPagination}
-          total_pages={productsResults.total_pages}
-          next_page={productsResults.next_page}
-          page={productsResults.page}
-        />
-      </div>
     </ProductsHomeContainer>
   );
 };
