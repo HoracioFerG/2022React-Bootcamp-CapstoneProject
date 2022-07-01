@@ -1,9 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import ProductItemContainer from "./ProductItem.js";
 import { getFormattedPrices, setCamelCase } from "../../utils/productsUtils.js";
+import {
+  addItem,
+  removeItem,
+  reset,
+} from "../../store/slices/shoppingCartSlice";
 import bagLogo from "../../assets/bag-icon.png";
-import { useNavigate } from "react-router-dom";
 
 export const ProductItem = ({ product, description }) => {
   const navigate = useNavigate();
@@ -11,18 +18,31 @@ export const ProductItem = ({ product, description }) => {
     product.data.price
   );
   const category = setCamelCase(product.data.category.slug);
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  console.log("initial state ", cart);
+
+  const handleAddToCart = () => {
+    dispatch(addItem);
+    console.log(cart);
+  };
 
   return (
-    <ProductItemContainer
-      onClick={() => navigate(`/products/product?productID=${product.id}`)}
-    >
+    <ProductItemContainer>
       <div className="imageContainer">
         <img
           className="product-image"
           alt={product.data.mainimage.alt}
           src={product.data.mainimage.url}
+          onClick={() => navigate(`/products/product?productID=${product.id}`)}
         />
-        <img className="bagLogo" src={bagLogo} alt="bagLogo" />
+        <img
+          className="bagLogo"
+          src={bagLogo}
+          alt="bagLogo"
+          onClick={handleAddToCart}
+        />
       </div>
 
       <h5 className="productName">{product.data.name}</h5>
