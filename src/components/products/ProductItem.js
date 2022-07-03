@@ -24,16 +24,14 @@ const ProductItemContainer = styled.div`
   }
   :hover {
     background-color: white;
-    cursor: pointer;
     border-color: "#B55400";
     box-shadow: 0px 0px 15px -3px rgb(125, 157, 156);
-    .product-image {
-    }
   }
 
   .imageContainer {
     position: relative;
     display: inline-block;
+    cursor: pointer;
   }
   .product-image {
     max-width: 200px;

@@ -24,10 +24,13 @@ const ProductsHomePage = lazy(() =>
 );
 
 const LoadingPage = lazy(() =>
-  import(/* webpackChunkName: "ProductsHomePage" */ "../pages/LoadingPage")
+  import(/* webpackChunkName: "LoadingPage" */ "../pages/LoadingPage")
 );
 const ProductsLayout = lazy(() =>
-  import(/* webpackChunkName: "ProductsHomePage" */ "../pages/ProductsLayout")
+  import(/* webpackChunkName: "ProductLayout" */ "../pages/ProductsLayout")
+);
+const CartHomePage = lazy(() =>
+  import(/* webpackChunkName: "CartHomePage" */ "../pages/CartHomePage")
 );
 
 export const routes = [
@@ -68,6 +71,11 @@ export const routes = [
     path: "/search",
     to: "/search",
     Component: SearchResult,
+  },
+  {
+    path: "/cart",
+    to: "/cart",
+    Component: CartHomePage,
   },
   {
     path: "*",

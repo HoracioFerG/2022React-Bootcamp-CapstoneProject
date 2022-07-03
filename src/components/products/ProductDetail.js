@@ -21,6 +21,64 @@ const ProductDetailContainer = styled.div`
     }
   }
 
+  .notificationContainer {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+
+    .productName {
+      margin-bottom: 1px;
+    }
+
+    .messageContainer {
+      background-color: white;
+      width: 500px;
+      height: 300px;
+      position: absolute;
+      top: 25%;
+      left: 35%;
+      align-content: center;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      .btnAlert {
+        display: flex;
+        flex-direction: row-reverse;
+        button {
+          border-radius: 5px;
+          padding: 10px;
+          width: 20%;
+          align-items: baseline;
+          cursor: pointer;
+          align-items: center;
+          border: 1px, solid, black;
+          background-color: rgb(125, 157, 156);
+          color: white;
+
+          :hover {
+            background-color: rgb(87, 111, 114);
+          }
+        }
+      }
+      h2 {
+        text-align: center;
+        color: rgb(87, 111, 114);
+      }
+      hr {
+        color: rgb(125, 157, 156);
+        width: 80%;
+      }
+    }
+  }
+
   .addToCartBtn {
     display: flex;
     align-items: center;
@@ -105,17 +163,15 @@ const ProductDetailContainer = styled.div`
     }
 
     .btn-group button:not(:last-child) {
-      border-right: none; /* Prevent double borders */
+      border-right: none;
     }
 
-    /* Clear floats (clearfix hack) */
     .btn-group:after {
       content: "";
       clear: both;
       display: table;
     }
 
-    /* Add a background color on hover */
     .btn-group button:hover {
       background-color: rgb(87, 111, 114);
     }

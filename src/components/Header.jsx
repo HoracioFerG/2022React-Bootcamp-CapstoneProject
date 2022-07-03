@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "./Header";
 import smLogo from "../assets/logo-50.png";
 import smCart from "../assets/cart-64.png";
+import { CartImage } from "./cart/CartImage";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -32,10 +33,7 @@ export const Header = () => {
         <button onClick={handleOnSearch} className="searchButton">
           Search
         </button>
-
-        <a href="/#" className="cart-logo">
-          <img src={smCart} alt="cart-logo" />
-        </a>
+        <CartImage imgSrc={smCart} />
       </div>
     </NavBar>
   );
