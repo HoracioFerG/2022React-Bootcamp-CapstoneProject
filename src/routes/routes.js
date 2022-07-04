@@ -32,6 +32,9 @@ const ProductsLayout = lazy(() =>
 const CartHomePage = lazy(() =>
   import(/* webpackChunkName: "CartHomePage" */ "../pages/CartHomePage")
 );
+const CheckoutHomePage = lazy(() =>
+  import(/* webpackChunkName: "CheckoutHomePage" */ "../pages/CheckoutHomePage")
+);
 
 export const routes = [
   {
@@ -76,6 +79,11 @@ export const routes = [
     path: "/cart",
     to: "/cart",
     Component: CartHomePage,
+  },
+  {
+    path: "/checkout",
+    to: "/checkout",
+    Component: CheckoutHomePage,
   },
   {
     path: "*",
