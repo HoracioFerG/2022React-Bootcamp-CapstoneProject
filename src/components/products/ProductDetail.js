@@ -83,6 +83,7 @@ const ProductDetailContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+
     button {
       cursor: pointer;
       width: 150px;
@@ -96,6 +97,11 @@ const ProductDetailContainer = styled.div`
 
       :hover {
         background-color: rgb(87, 111, 114);
+      }
+
+      :disabled {
+        background-color: gray;
+        cursor: default;
       }
     }
   }

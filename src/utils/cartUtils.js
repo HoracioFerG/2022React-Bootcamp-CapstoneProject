@@ -11,6 +11,7 @@ export const addProduct = (state, action) => {
     ) {
       state.products[productIndex].productQuantity += quantity;
       state.items = updateTotalItems(state.products);
+      state.products[productIndex].onStock -= quantity;
     }
   } else {
     //First time adding the product
@@ -25,6 +26,7 @@ export const addProduct = (state, action) => {
       price: product.data.price,
       category: product.data.category.slug,
       productQuantity: quantity,
+      onStock: product.data.stock - quantity,
     });
     state.items += quantity;
   }
@@ -32,13 +34,47 @@ export const addProduct = (state, action) => {
   return state;
 };
 
+export const updateCart = (state, action) => {
+  const { product, quantity, operation } = action.payload;
+  const productIndex = state.products.findIndex(
+    (element) => element.idProduct === product.idProduct
+  );
+
+  if (productIndex >= 0) {
+    switch (operation) {
+      case "increment":
+        if (
+          state.products[productIndex].productQuantity + quantity <=
+          product.onStock
+        ) {
+          state.products[productIndex].productQuantity += quantity;
+          state.items = updateTotalItems(state.products);
+          state.products[productIndex].onStock -= quantity;
+        }
+        break;
+      case "decrement":
+        if (state.products[productIndex].productQuantity - quantity > 0) {
+          state.products[productIndex].productQuantity -= quantity;
+          state.items = updateTotalItems(state.products);
+          state.products[productIndex].onStock += quantity;
+        }
+        break;
+      case "remove":
+        state.products.splice(productIndex, 1);
+
+        break;
+
+      default:
+        break;
+    }
+  }
+};
+
 export const removeProduct = (state, setState) => {
-  console.log("Producto removido");
   state.items -= 1;
 };
 
 export const resetCart = (state) => {
-  console.log("Carrito reiniciado");
   state.items = 0;
 };
 
@@ -47,5 +83,3 @@ const updateTotalItems = (products) => {
   const sum = amounts.reduce((tempSum, a) => tempSum + a, 0);
   return sum;
 };
-
-export const checkForAvailability = (products) => {};

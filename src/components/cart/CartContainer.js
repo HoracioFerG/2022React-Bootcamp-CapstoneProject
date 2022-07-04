@@ -29,7 +29,7 @@ const CartContainer = styled.div`
     }
 
     .checkoutContainer {
-      max-height: 40vh;
+      max-height: 45vh;
       background-color: white;
 
       grid-template-rows: auto;

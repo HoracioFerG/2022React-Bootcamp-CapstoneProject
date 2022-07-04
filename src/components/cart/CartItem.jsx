@@ -1,29 +1,43 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { QuantityButtons } from "../QuantityButtons";
 import CartItemContainer from "./CartItemStyle";
 import traschIcon from "../../assets/trash-icon.png";
+import { formatPrice } from "../../utils/productsUtils";
+import { cartUpdate } from "../../store/slices/shoppingCartSlice";
 
-export const CartItem = () => {
+export const CartItem = ({ product }) => {
   const [productQuantity, setProductQuantity] = useState(1);
+  const dispatch = useDispatch();
+
+  const handleOnRemove = () => {
+    dispatch(cartUpdate({ product, quantity: 0, operation: "remove" }));
+  };
 
   return (
     <CartItemContainer>
-      <div className="imageContainer">image</div>
+      <div className="imageContainer">
+        <img src={product.image.url} alt={product.image.alt} />
+      </div>
       <div className="descriptionContainer">
         <div className="header">
-          <h3>Product Name</h3>
-          <img src={traschIcon} alt="trash_icon" />
+          <h3>{product.name}</h3>
+          <img src={traschIcon} alt="trash_icon" onClick={handleOnRemove} />
         </div>
         <hr />
-        <h4>n x price</h4>
-        <h4>Total</h4>
+        <h4>
+          {product.productQuantity} x ${formatPrice(product.price)}
+        </h4>
+        <h4>${formatPrice(product.productQuantity * product.price)}</h4>
         <QuantityButtons
-          stock={10}
+          stock={product.onStock}
           productQuantity={productQuantity}
           setProductQuantity={setProductQuantity}
+          isOnCheckout={true}
+          product={product}
         />
-        <p>15 on stock</p>
+        <p>{product.onStock} on stock</p>
         <small>
           After the arrival of your product you have 15 days to any type of
           change or refund.

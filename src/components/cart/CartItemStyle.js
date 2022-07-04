@@ -19,6 +19,10 @@ const CartItemContainer = styled.div`
     border-right: 1px;
     border-style: solid;
     border-color: #7d9d9c;
+
+    img {
+      max-height: 250px;
+    }
   }
 
   .descriptionContainer {
