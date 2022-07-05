@@ -1,4 +1,5 @@
 import React from "react";
+
 import noFoundImg from "../../assets/no-found.png";
 
 export const NoProductsFound = () => {

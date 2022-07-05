@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
 
 import { QuantityButtons } from "../QuantityButtons";
 import CartItemContainer from "./CartItemStyle";
@@ -45,4 +46,8 @@ export const CartItem = ({ product }) => {
       </div>
     </CartItemContainer>
   );
+};
+
+CartItem.propTypes = {
+  product: PropTypes.object.isRequired,
 };

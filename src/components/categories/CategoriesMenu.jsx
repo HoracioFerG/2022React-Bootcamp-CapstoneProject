@@ -1,4 +1,6 @@
 import React, { useRef } from "react";
+import PropTypes from "prop-types";
+
 import CategoriesMenuContainer from "./CategoriesMenu";
 
 export const CategoriesMenu = ({
@@ -60,4 +62,11 @@ export const CategoriesMenu = ({
       </div>
     </CategoriesMenuContainer>
   );
+};
+
+CategoriesMenu.propTypes = {
+  categories: PropTypes.array.isRequired,
+  setPagination: PropTypes.func.isRequired,
+  setFilters: PropTypes.func.isRequired,
+  filters: PropTypes.array.isRequired,
 };

@@ -6,11 +6,11 @@ import { Carousel } from "react-responsive-carousel";
 import { useProductDetail } from "../../utils/hooks/useProductDetail";
 import ProductDetailContainer from "./ProductDetail";
 import { formatPrice, setCamelCase } from "../../utils/productsUtils.js";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { addItem } from "../../store/slices/shoppingCartSlice";
 import { Notification } from "../../layout/Notification";
 import { QuantityButtons } from "../QuantityButtons";
 import { useCheckForAvailability } from "../../utils/hooks/useProductHooks";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export const ProductDetail = () => {
   const dispatch = useDispatch();

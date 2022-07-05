@@ -49,4 +49,5 @@ export const ProductItem = ({ product, description }) => {
 
 ProductItem.propTypes = {
   product: PropTypes.object.isRequired,
+  description: PropTypes.string,
 };

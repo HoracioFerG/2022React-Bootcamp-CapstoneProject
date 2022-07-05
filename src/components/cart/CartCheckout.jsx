@@ -1,7 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import { formatPrice } from "../../utils/productsUtils";
 
 export const CartCheckout = ({ items, products }) => {
+  const navigate = useNavigate();
+
   const costs = products.map(
     (product) => product.price * product.productQuantity
   );
@@ -33,8 +38,29 @@ export const CartCheckout = ({ items, products }) => {
       <hr />
       <div className="bottom">
         <h3>Total: ${formatPrice(totalPayment)}</h3>
-        <button>Proceed to payment</button>
+        <button
+          onClick={() =>
+            navigate("/checkout", {
+              state: {
+                products,
+                costs: {
+                  subtotal: totalProducts,
+                  shippingCost: shipmentCost,
+                  taxes: taxesCost,
+                  total: totalPayment,
+                },
+              },
+            })
+          }
+        >
+          Proceed to payment
+        </button>
       </div>
     </>
   );
+};
+
+CartCheckout.propTypes = {
+  items: PropTypes.number.isRequired,
+  products: PropTypes.array.isRequired,
 };

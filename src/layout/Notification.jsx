@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { formatPrice } from "../utils/productsUtils";
 
@@ -43,4 +44,11 @@ export const Notification = ({
       </div>
     </div>
   );
+};
+
+Notification.propTypes = {
+  products: PropTypes.object.isRequired,
+  notificationContainerRef: PropTypes.object.isRequired,
+  upPrice: PropTypes.number.isRequired,
+  productQuantity: PropTypes.number.isRequired,
 };

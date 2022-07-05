@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { BannerItem } from "./BannerItem";
 
+import { BannerItem } from "./BannerItem";
 import { useCustomAPI } from "../../utils/hooks/useCustomAPI";
 
 export const Carousel = () => {

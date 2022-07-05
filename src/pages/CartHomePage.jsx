@@ -7,7 +7,7 @@ import { CartItem } from "../components/cart/CartItem";
 
 export const CartHomePage = () => {
   const { products, items } = useSelector((state) => state.cart);
-  console.log(products);
+
   return (
     <CartContainer>
       <h1>Review your cart</h1>

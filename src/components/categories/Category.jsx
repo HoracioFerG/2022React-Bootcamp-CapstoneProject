@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import style from "./Category.module.css";
 
 export const Category = ({ data: categoryData, idCategory }) => {
@@ -19,4 +21,9 @@ export const Category = ({ data: categoryData, idCategory }) => {
       </label>
     </div>
   );
+};
+
+Category.propTypes = {
+  data: PropTypes.object.isRequired,
+  idCategory: PropTypes.string.isRequired,
 };

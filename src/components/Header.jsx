@@ -1,9 +1,10 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { CartImage } from "./cart/CartImage";
 import NavBar from "./Header";
 import smLogo from "../assets/logo-50.png";
 import smCart from "../assets/cart-64.png";
-import { CartImage } from "./cart/CartImage";
 
 export const Header = () => {
   const navigate = useNavigate();

@@ -14,7 +14,6 @@ export function useProductResults(
     data: {},
     isLoading: true,
   }));
-
   useEffect(() => {
     if (!apiRef || isApiMetadataLoading) {
       return () => {};
@@ -31,7 +30,7 @@ export function useProductResults(
             : `${API_BASE_URL}/documents/search?ref=${apiRef}&q=${encodeURIComponent(
                 `[[at(document.type, "${type}")][fulltext(document, "${searchTerm}")]]`
               )}&lang=en-us&pageSize=${pageSize}&page=${page}`;
-
+        console.log("url");
         const response = await fetch(url, {
           signal: controller.signal,
         });

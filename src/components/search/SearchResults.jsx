@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+
 import { useProductResults } from "../../utils/hooks/useProductsResults";
 import { Pagination } from "../Pagination";
 import { ProductsList } from "../products/ProductsList";
@@ -8,16 +9,11 @@ import SearchResultsContainer from "./SearchResults";
 
 export const SearchResults = () => {
   const [searchParams] = useSearchParams();
-  const [pagination, setPagination] = useState({ page: 1, nextPage: "" });
+  const [pagination, setPagination] = useState(1);
   const params = searchParams.get("querySearch");
+
   const { data: productsResults, isLoading: isProductsResultsLoading } =
-    useProductResults(
-      "product",
-      params,
-      20,
-      pagination.page,
-      pagination.nextPage
-    );
+    useProductResults("product", params, 20, pagination, "");
 
   return (
     <SearchResultsContainer>
@@ -27,8 +23,7 @@ export const SearchResults = () => {
         <>
           <ProductsList filteredProducts={productsResults.results} />
           <Pagination
-            pagination={pagination}
-            setPagination={setPagination}
+            handlePageChange={(page) => setPagination(page)}
             total_pages={productsResults.total_pages}
             next_page={productsResults.next_page}
             page={productsResults.page}

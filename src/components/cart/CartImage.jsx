@@ -1,5 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
+
 import LinkContainer from "./CartImageStyle";
 
 export const CartImage = ({ imgSrc }) => {
@@ -11,4 +13,8 @@ export const CartImage = ({ imgSrc }) => {
       {state.items > 0 && <span className="quantityOnCart">{state.items}</span>}
     </LinkContainer>
   );
+};
+
+CartImage.propTypes = {
+  imgSrc: PropTypes.string.isRequired,
 };

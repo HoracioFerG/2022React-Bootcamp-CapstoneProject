@@ -58,8 +58,6 @@ export const Form = () => {
           placeholder='"Be aware of the dog! "'
           {...register("notes")}
         />
-
-        <input type="submit" />
       </form>
     </div>
   );

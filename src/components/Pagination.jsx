@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export const Pagination = ({
   handlePageChange,
@@ -37,4 +38,11 @@ export const Pagination = ({
       )}
     </div>
   );
+};
+
+Pagination.propTypes = {
+  handlePageChange: PropTypes.func,
+  total_pages: PropTypes.number,
+  next_page: PropTypes.string,
+  page: PropTypes.number,
 };

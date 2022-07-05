@@ -2,25 +2,28 @@ import styled from "styled-components";
 
 const CheckoutContainer = styled.div`
   background-color: rgba(240, 235, 227, 0.5);
-  margin: 20px;
+  margin: 10px;
   width: auto;
   padding: 20px;
-  min-height: 80vh;
   max-height: 100vh;
-  height: 80vh;
+  height: auto;
   border-radius: 10px;
-  /* display: grid;
-  grid-template-columns: 2fr 1fr; */
+  h1 {
+    color: #576f72;
+  }
   .container {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 50px;
+    height: auto;
   }
   .formContainer {
     background-color: white;
     border-radius: 10px;
     display: grid;
     grid-template-rows: auto;
-    height: 100%;
+    height: fit-content;
+    padding-bottom: 20px;
 
     form {
       display: flex;
@@ -45,6 +48,8 @@ const CheckoutContainer = styled.div`
       label {
         padding: 5px;
         max-height: 30px;
+        color: #576f72;
+        font-weight: bold;
       }
       textarea {
         border-radius: 5px;
@@ -63,6 +68,8 @@ const CheckoutContainer = styled.div`
         margin: 0;
         padding: 5px;
         font-size: smaller;
+        color: #7d9d9c;
+        font-weight: bold;
       }
     }
   }

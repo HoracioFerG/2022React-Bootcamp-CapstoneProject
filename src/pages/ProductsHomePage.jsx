@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import ProductsHomeContainer from "./ProductsHomePage";
 
+import ProductsHomeContainer from "./ProductsHomePage";
 import loadingGif from "../assets/loading-gif.gif";
 import { useCustomAPI } from "../utils/hooks/useCustomAPI";
 import { CategoriesMenu } from "../components/categories/CategoriesMenu.jsx";
@@ -16,14 +16,14 @@ export const ProductsHomePage = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filters, setFilters] = useState(params ? params.split(",") : []);
   const [pagination, setPagination] = useState(1);
-  const [nextPage, setNextPage] = useState("");
+
   const { data: productsResults, isLoading: isProductsLoading } = useCustomAPI(
     "product",
     filters,
     [],
     12,
     pagination,
-    nextPage
+    ""
   );
 
   const { data: categoriesData, isLoading: isCategoriesLoading } =
@@ -37,7 +37,7 @@ export const ProductsHomePage = () => {
     if (isProductsLoading) {
       return;
     }
-    // setNextPage(productsResults.next_page);
+
     setFilteredProducts(productsResults.results);
   }, [filters, isProductsLoading, pagination]);
 
