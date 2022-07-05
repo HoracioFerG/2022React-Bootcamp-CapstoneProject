@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import ProductItemContainer from "./ProductItem.js";
+import ProductItemContainer from "./ProductItemStyle";
 import { formatPrice, setCamelCase } from "../../utils/productsUtils.js";
 import { addItem } from "../../store/slices/shoppingCartSlice";
 import bagLogo from "../../assets/bag-icon.png";

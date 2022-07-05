@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import ProductsHomeContainer from "./ProductsHomePage";
+import ProductsHomeContainer from "./ProductsHomePageStyle";
 import loadingGif from "../assets/loading-gif.gif";
 import { useCustomAPI } from "../utils/hooks/useCustomAPI";
-import { CategoriesMenu } from "../components/categories/CategoriesMenu.jsx";
+import { CategoriesMenu } from "../components/categories/CategoriesMenu";
 import { ProductsList } from "../components/products/ProductsList";
 import { Pagination } from "../components/Pagination";
 
@@ -39,6 +39,7 @@ export const ProductsHomePage = () => {
     }
 
     setFilteredProducts(productsResults.results);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, isProductsLoading, pagination]);
 
   return (

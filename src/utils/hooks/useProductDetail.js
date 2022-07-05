@@ -41,6 +41,7 @@ export function useProductDetail(type, idProduct) {
     return () => {
       controller.abort();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [apiRef, isApiMetadataLoading]);
 
   return results;

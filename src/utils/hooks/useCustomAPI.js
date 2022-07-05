@@ -63,6 +63,7 @@ export function useCustomAPI(
     return () => {
       controller.abort();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [apiRef, isApiMetadataLoading, type, queryCategories, page, nextPage]);
 
   return results;

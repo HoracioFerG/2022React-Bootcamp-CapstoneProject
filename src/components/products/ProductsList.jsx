@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ProductItem } from "./ProductItem.jsx";
+import { ProductItem } from "./ProductItem";
 
 export const ProductsList = ({ filteredProducts }) => {
   return (

@@ -9,18 +9,16 @@ const PageNotFound = lazy(() =>
 
 const ProductDetail = lazy(() =>
   import(
-    /* webpackChunkName: "ProductDetailPage" */ "../components/products/ProductDetail.jsx"
+    /* webpackChunkName: "ProductDetailPage" */ "../components/products/ProductDetail"
   )
 );
 const SearchResult = lazy(() =>
   import(
-    /* webpackChunkName: "SearchResultPage" */ "../components/search/SearchResults.jsx"
+    /* webpackChunkName: "SearchResultPage" */ "../components/search/SearchResults"
   )
 );
 const ProductsHomePage = lazy(() =>
-  import(
-    /* webpackChunkName: "ProductsHomePage" */ "../pages/ProductsHomePage.jsx"
-  )
+  import(/* webpackChunkName: "ProductsHomePage" */ "../pages/ProductsHomePage")
 );
 
 const LoadingPage = lazy(() =>

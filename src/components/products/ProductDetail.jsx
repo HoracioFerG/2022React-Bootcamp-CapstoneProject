@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { Carousel } from "react-responsive-carousel";
 import { useProductDetail } from "../../utils/hooks/useProductDetail";
-import ProductDetailContainer from "./ProductDetail";
+import ProductDetailContainer from "./ProductDetailStyle";
 import { formatPrice, setCamelCase } from "../../utils/productsUtils.js";
 import { addItem } from "../../store/slices/shoppingCartSlice";
 import { Notification } from "../../layout/Notification";
@@ -29,8 +29,7 @@ export const ProductDetail = () => {
   const productInfo = !isLoading && productData.results[0].data;
   const productTags = !isLoading && productData.results[0].tags;
   const productSpecs = !isLoading && productData.results[0].data.specs;
-  const { product: productCart, disable: isDisable } =
-    useCheckForAvailability(productIdParams);
+  const { product: productCart } = useCheckForAvailability(productIdParams);
 
   const productStock = productCart?.onStock ?? productInfo?.stock;
 

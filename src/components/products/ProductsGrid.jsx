@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useCustomAPI } from "../../utils/hooks/useCustomAPI";
-import FeaturedProductGrid from "./PoductGrid";
-import { ProductItem } from "./ProductItem.jsx";
+import FeaturedProductGrid from "./PoductGridStyle";
+import { ProductItem } from "./ProductItem";
 
 export const ProductsGrid = () => {
   const { isLoading, data: products } = useCustomAPI(

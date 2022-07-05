@@ -5,7 +5,7 @@ import { useProductResults } from "../../utils/hooks/useProductsResults";
 import { Pagination } from "../Pagination";
 import { ProductsList } from "../products/ProductsList";
 import { NoProductsFound } from "./NoProductsFound";
-import SearchResultsContainer from "./SearchResults";
+import SearchResultsContainer from "./SearchResultsStyle";
 
 export const SearchResults = () => {
   const [searchParams] = useSearchParams();
