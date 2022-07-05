@@ -48,7 +48,7 @@ export const ProductsHomePage = () => {
         <>
           <CategoriesMenu
             categories={categoriesData.results}
-            setPagination={setPagination}
+            setPagination={(page) => setPagination(page)}
             setFilters={setFilters}
             filters={filters}
           />
