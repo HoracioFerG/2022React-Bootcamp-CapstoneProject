@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 import CategoriesMenuContainer from "./CategoriesMenuStyle";
@@ -12,7 +12,7 @@ export const CategoriesMenu = ({
   const categoriesContainerRef = useRef(null);
   const handleOnCategoryClick = (e) => {
     const isClicked = e.target;
-    setPagination({ page: 1, nextPage: "" });
+    setPagination(1);
     if (!isClicked.className) {
       isClicked.className = "clicked";
       setFilters((filters) => [...filters, isClicked.id]);
@@ -22,10 +22,15 @@ export const CategoriesMenu = ({
     }
   };
 
+  useEffect(() => {
+    applyFilterStyle("clicked");
+  }, []);
+
   const applyFilterStyle = (isOnOff) => {
     const childs = Object.entries(
       categoriesContainerRef.current.childNodes[0].childNodes
     );
+
     for (let i = 0; i < childs.length; i++) {
       const element = childs[i];
 
@@ -54,7 +59,7 @@ export const CategoriesMenu = ({
           onClick={() => {
             setFilters([]);
             applyFilterStyle("");
-            setPagination({ page: 1, nextPage: "" });
+            setPagination(1);
           }}
         >
           Clear filters
