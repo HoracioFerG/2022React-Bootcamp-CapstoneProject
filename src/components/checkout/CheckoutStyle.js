@@ -71,6 +71,28 @@ const CheckoutContainer = styled.div`
         color: #7d9d9c;
         font-weight: bold;
       }
+
+      .btnActions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        button {
+          cursor: pointer;
+          text-align: center;
+          border-radius: 5px;
+          padding: 10px;
+          margin: 10px;
+
+          align-items: center;
+          font-size: large;
+          border: 1px, solid, black;
+          background-color: rgb(125, 157, 156);
+          color: white;
+
+          :hover {
+            background-color: rgb(87, 111, 114);
+          }
+        }
+      }
     }
   }
 `;

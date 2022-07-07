@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 export const Form = () => {
   const {
@@ -7,6 +8,7 @@ export const Form = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
   return (
     <div className="formContainer">
       <form onSubmit={handleSubmit()}>
@@ -58,6 +60,10 @@ export const Form = () => {
           placeholder='"Be aware of the dog! "'
           {...register("notes")}
         />
+        <div className="btnActions">
+          <button type="submit">Proceed</button>
+          <button onClick={() => navigate(-1)}>Go back</button>
+        </div>
       </form>
     </div>
   );

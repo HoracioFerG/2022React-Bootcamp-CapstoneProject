@@ -9,7 +9,9 @@ import { formatPrice } from "../../utils/productsUtils";
 import { cartUpdate } from "../../store/slices/shoppingCartSlice";
 
 export const CartItem = ({ product }) => {
-  const [productQuantity, setProductQuantity] = useState(1);
+  const [productQuantity, setProductQuantity] = useState(
+    product.productQuantity
+  );
   const dispatch = useDispatch();
 
   const handleOnRemove = () => {

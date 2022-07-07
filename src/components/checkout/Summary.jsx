@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { formatPrice } from "../../utils/productsUtils";
@@ -9,7 +8,6 @@ import SummaryContainer from "./SummaryStyle";
 export const Summary = ({ products, costs }) => {
   const { subtotal, shippingCost, taxes, total } = costs;
 
-  const navigate = useNavigate();
   return (
     <SummaryContainer>
       <div className="header">
@@ -49,8 +47,6 @@ export const Summary = ({ products, costs }) => {
           <p>${formatPrice(total)}</p>
         </div>
       </div>
-      <button onClick={() => navigate(-1)}>Go back</button>
-      <button>Proceed</button>
     </SummaryContainer>
   );
 };

@@ -15,7 +15,7 @@ export const QuantityButtons = ({
   const dispatch = useDispatch();
 
   const handleMoreProduct = () => {
-    if (productQuantity + 1 <= stock) {
+    if (stock > 0) {
       setProductQuantity(productQuantity + 1);
       isOnCheckout &&
         dispatch(cartUpdate({ product, quantity: 1, operation: "increment" }));
@@ -23,7 +23,7 @@ export const QuantityButtons = ({
   };
 
   const handleLessProduct = () => {
-    if (productQuantity - 1 !== 0) {
+    if (productQuantity > 1) {
       setProductQuantity(productQuantity - 1);
       isOnCheckout &&
         dispatch(cartUpdate({ product, quantity: 1, operation: "decrement" }));

@@ -43,10 +43,7 @@ export const updateCart = (state, action) => {
   if (productIndex >= 0) {
     switch (operation) {
       case "increment":
-        if (
-          state.products[productIndex].productQuantity + quantity <=
-          product.onStock
-        ) {
+        if (product.onStock >= 0) {
           state.products[productIndex].productQuantity += quantity;
           state.items = updateTotalItems(state.products);
           state.products[productIndex].onStock -= quantity;

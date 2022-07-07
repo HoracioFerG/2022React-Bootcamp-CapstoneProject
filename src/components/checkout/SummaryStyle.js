@@ -3,6 +3,8 @@ import styled from "styled-components";
 const SummaryContainer = styled.div`
   background-color: white;
   border-radius: 20px;
+  min-height: 60%;
+  max-height: 100%;
 
   button {
     cursor: pointer;
