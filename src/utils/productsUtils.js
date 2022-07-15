@@ -1,5 +1,5 @@
 export const getFormattedPrices = (price) => {
-  const upPrice = Math.random() * 500;
+  const upPrice = Math.random() * price;
   const originalPrice = (price + upPrice)
     .toFixed(2)
     .toString()
@@ -18,6 +18,13 @@ export const getFormattedPrices = (price) => {
       .toString()
       .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
   };
+};
+
+export const formatPrice = (price) => {
+  return price
+    .toFixed(2)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
 export const setCamelCase = (word) => {

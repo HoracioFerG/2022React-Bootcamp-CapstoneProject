@@ -1,9 +1,19 @@
 import React from "react";
-import { products } from "../../assets/featured";
-import FeaturedProductGrid from "./PoductGrid";
-import { ProductItem } from "./ProductItem.jsx";
+import { useNavigate } from "react-router-dom";
 
-export const ProductsGrid = ({ componentOn }) => {
+import { useCustomAPI } from "../../utils/hooks/useCustomAPI";
+import FeaturedProductGrid from "./PoductGridStyle";
+import { ProductItem } from "./ProductItem";
+
+export const ProductsGrid = () => {
+  const { isLoading, data: products } = useCustomAPI(
+    "product",
+    "",
+    ["Featured"],
+    16
+  );
+
+  const navigate = useNavigate();
   return (
     <FeaturedProductGrid>
       <div className="featuredProductsTitleContainer">
@@ -11,10 +21,14 @@ export const ProductsGrid = ({ componentOn }) => {
         <hr />
       </div>
 
-      {products.map((product) => {
-        return <ProductItem key={product.id} product={product} />;
-      })}
-      <button onClick={() => componentOn("products")}>
+      {isLoading ? (
+        <></>
+      ) : (
+        products.results.map((product) => {
+          return <ProductItem key={product.id} product={product} />;
+        })
+      )}
+      <button onClick={() => navigate("/products")}>
         <h4>Wanna see more? Click here!</h4>
       </button>
     </FeaturedProductGrid>

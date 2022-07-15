@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { Header } from "../Header.jsx";
+import { Header } from "../Header";
 
 test("It should render Ecommerce name", () => {
   const component = render(<Header />);

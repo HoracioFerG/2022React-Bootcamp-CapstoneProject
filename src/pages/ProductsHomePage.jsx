@@ -1,90 +1,78 @@
 import React, { useEffect, useState } from "react";
-import ProductsHomeContainer from "./ProductsHomePage";
-import { categoriesData } from "../assets/categories";
-import { products } from "../assets/featured2";
-import { ProductItem } from "../components/products/ProductItem.jsx";
+import { useSearchParams } from "react-router-dom";
+
+import ProductsHomeContainer from "./ProductsHomePageStyle";
 import loadingGif from "../assets/loading-gif.gif";
+import { useCustomAPI } from "../utils/hooks/useCustomAPI";
+import { CategoriesMenu } from "../components/categories/CategoriesMenu";
+import { ProductsList } from "../components/products/ProductsList";
+import { Pagination } from "../components/Pagination";
 
 export const ProductsHomePage = () => {
-  const { results: categories } = categoriesData;
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [filteredProducts, setFilteredProducts] = useState(products);
-  const [filters, setFilters] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const params = searchParams.get("products");
 
-  const handleOnCategoryClick = (e) => {
-    const isClicked = e.target;
-    setLoading(!loading);
-    setTimeout(() => {
-      if (!isClicked.className) {
-        isClicked.className = "clicked";
-        setFilters((filters) => [...filters, isClicked.id]);
-      } else {
-        isClicked.className = "";
-        setFilters((filters) =>
-          filters.filter((val, i) => val !== isClicked.id)
-        );
-      }
-    }, 1500);
-  };
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filters, setFilters] = useState(params ? params.split(",") : []);
+  const [pagination, setPagination] = useState(1);
+
+  const { data: productsResults, isLoading: isProductsLoading } = useCustomAPI(
+    "product",
+    filters,
+    [],
+    12,
+    pagination,
+    ""
+  );
+
+  const { data: categoriesData, isLoading: isCategoriesLoading } =
+    useCustomAPI("category");
 
   useEffect(() => {
-    if (filters.length > 0) {
-      const newProducts = products.filter((product) => {
-        const existingProduct = filters.includes(product.data.category.id);
-
-        if (existingProduct) {
-          return product;
-        } else {
-          return null;
-        }
-      });
-      setFilteredProducts(newProducts);
-    } else {
-      setFilteredProducts(products);
+    if (params?.length > 0 || filters.length > 0) {
+      setSearchParams(`products=${filters.toString()}`);
     }
-    setTimeout(() => {
-      setLoading(!loading);
-    }, 1500);
-  }, [filters]);
+
+    if (isProductsLoading) {
+      return;
+    }
+
+    setFilteredProducts(productsResults.results);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters, isProductsLoading, pagination]);
 
   return (
     <ProductsHomeContainer>
-      <div className="categoriesMenu">
-        {categories.map((category) => {
-          return (
-            <p
-              onClick={handleOnCategoryClick}
-              key={category.id}
-              id={category.id}
-            >
-              {category.data.name}
-            </p>
-          );
-        })}
-      </div>
-
-      <img
-        src={loadingGif}
-        alt="loadingGif"
-        style={{ display: loading ? "block" : "none" }}
-      />
-      <div
-        className="productsContainer"
-        style={{ display: !loading ? "" : "none" }}
-      >
-        <div className="productsGrid">
-          {filteredProducts.map((product) => {
-            return <ProductItem key={product.id} product={product} />;
-          })}
-        </div>
-        <div className="paginationContainer">
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>4</button>
-        </div>
-      </div>
+      {!isCategoriesLoading && (
+        <>
+          <CategoriesMenu
+            categories={categoriesData.results}
+            setPagination={(page) => setPagination(page)}
+            setFilters={setFilters}
+            filters={filters}
+          />
+          <img
+            src={loadingGif}
+            alt="loadingGif"
+            style={{ display: isProductsLoading ? "block" : "none" }}
+          />
+          <div
+            className="productsContainer"
+            style={{ display: !isProductsLoading ? "" : "none" }}
+          >
+            <ProductsList filteredProducts={filteredProducts} />
+            <Pagination
+              handlePageChange={(page) => setPagination(page)}
+              total_pages={productsResults.total_pages}
+              next_page={productsResults.next_page}
+              page={productsResults.page}
+            />
+          </div>
+        </>
+      )}
     </ProductsHomeContainer>
   );
 };
+
+export default ProductsHomePage;

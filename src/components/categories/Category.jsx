@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
+
 import style from "./Category.module.css";
 
-export const Category = ({ data: categoryData }) => {
+export const Category = ({ data: categoryData, idCategory }) => {
+  const navigate = useNavigate();
   return (
-    <div className={style.categoryContainer}>
+    <div
+      onClick={() => navigate(`/products?products=${idCategory}`)}
+      className={style.categoryContainer}
+    >
       <img
         className={style.img}
         src={categoryData.main_image.url}
@@ -14,4 +21,9 @@ export const Category = ({ data: categoryData }) => {
       </label>
     </div>
   );
+};
+
+Category.propTypes = {
+  data: PropTypes.object.isRequired,
+  idCategory: PropTypes.string.isRequired,
 };
